@@ -21,7 +21,6 @@ body {
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
   background-attachment: fixed;
-  /*此条属性必须设置否则可能无效*/
   /* 让背景图基于容器大小伸缩 */
   background-size: cover;
 }
