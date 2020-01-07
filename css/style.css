@@ -2,7 +2,7 @@
   text-align: center;
 }
 .do {
-  background-color: #d4d4d4;
+  background-color: #d8d8d8;
   cursor: pointer;
   color: #2d2d2d;
   font-family: '微软雅黑', '黑体';
@@ -148,18 +148,30 @@ h1 {
   cursor: pointer;
 }
 .result-area {
-  color: #009758;
+  color: #d8d8d8;
   font-family: '微软雅黑', '黑体';
   font-size: 3vw;
   margin-top: 0;
 }
-.result-box {
-  display: block;
-  width: 90vw;
-  height: 35.5vw;
-  margin: auto;
-  border: #009758 5px solid;
-  border-radius: 5px;
+@media screen and (max-width: 500px) {
+  .result-box {
+    display: block;
+    width: 90vw;
+    height: 40vw;
+    margin: auto;
+    border: #d8d8d8 5px solid;
+    border-radius: 5px;
+  }
+}
+@media screen and (min-width: 500px) {
+  .result-box {
+    display: block;
+    width: 90vw;
+    height: 36vw;
+    margin: auto;
+    border: #d8d8d8 5px solid;
+    border-radius: 5px;
+  }
 }
 .img1 {
   width: auto;
@@ -264,7 +276,7 @@ h1 {
   color: #0086f3;
 }
 .three-star {
-  color: #d4d4d4;
+  color: #d8d8d8;
 }
 .money-num {
   color: #cf4949;
@@ -287,7 +299,7 @@ h1 {
 .three-box {
   border: #2d2d2d 2px solid;
   border-radius: 2px;
-  border-color: #d4d4d4;
+  border-color: #d8d8d8;
 }
 .money-box {
   border: #2d2d2d 2px solid;
@@ -310,5 +322,5 @@ a:hover {
   color: #debc02;
 }
 a:visited {
-  color: #d4d4d4;
+  color: #d8d8d8;
 }

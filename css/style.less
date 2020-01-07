@@ -9,7 +9,7 @@
 @res_font_size: 3vw;
 @buy_font_size: 15px;
 @color_light: #eee;
-@color_grey: #d4d4d4;
+@color_grey: #d8d8d8;
 @color_dark: #2d2d2d;
 @color_jade: #8a2f00;
 @color_sstone: #c79a49;
@@ -41,7 +41,7 @@ body {
   /* 背景图不平铺 */
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-attachment: fixed; 
+  background-attachment: fixed;
   /* 让背景图基于容器大小伸缩 */
   background-size: cover;
 }
@@ -195,19 +195,33 @@ h1 {
 }
 
 .result-area {
-  color: @color_green;
+  color: @color_grey;
   font-family: '微软雅黑', '黑体';
   font-size: @res_font_size;
   margin-top: 0;
 }
 
-.result-box {
-  display: block;
-  width: 90vw;
-  height: 35.5vw;
-  margin: auto;
-  border: @color_green 5px solid;
-  border-radius: 5px;
+@media screen and (max-width: 500px) {
+  .result-box {
+    display: block;
+    width: 90vw;
+    height: 40vw;
+    margin: auto;
+    border: @color_grey 5px solid;
+    border-radius: 5px;
+  }
+}
+
+
+@media screen and (min-width: 500px) {
+  .result-box {
+    display: block;
+    width: 90vw;
+    height: 36vw;
+    margin: auto;
+    border: @color_grey 5px solid;
+    border-radius: 5px;
+  }
 }
 
 .img() {
@@ -371,7 +385,6 @@ h1 {
 .footage {
   color: @color_light;
 }
-
 
 a:link {
   color: @color_blue;
