@@ -324,3 +324,7 @@ a:hover {
 a:visited {
   color: #d8d8d8;
 }
+.sstone-text {
+  color: #d8d8d8;
+  margin-bottom: 0;
+}
