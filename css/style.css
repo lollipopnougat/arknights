@@ -328,3 +328,10 @@ a:visited {
   color: #d8d8d8;
   margin-bottom: 0;
 }
+.min-gu {
+  color: #cf4949;
+  margin-bottom: 0;
+  font-size: 25px;
+  font-weight: 600;
+  text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+}

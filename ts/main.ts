@@ -41,7 +41,7 @@ class Random {
 
 class SJManager {
     public static compoundJade = 12000;
-    public static sStone = 18;
+    public static sStone = 56;
     public static costMoney = 0;
     private isFirstBuySStone0: boolean = true;
     private isFirstBuySStone1: boolean = true;
@@ -160,6 +160,7 @@ class FindAgent {
     private currAgentArray: string[] = [];
     private lastIsTen = false;
     private tenAgentLevel: number[] = [];
+    private minGuNum = 10;
     constructor(isActivity: boolean = false,
         sixActProb: number = 50, sixActAgentsArray: string[] = [],
         fiveActProb = 50, fiveActAgentsArray: string[] = [],
@@ -202,6 +203,7 @@ class FindAgent {
     }
 
     public DrawOnce = (): string => {
+
         this.validDrawTimes++;
         //let currAgent: string;
         let prob = this.rand.Next(0, 100);
@@ -210,9 +212,18 @@ class FindAgent {
         let currSixProb = this.AddSixProb() % 100;
         let currFiveProb = (this.AddSixProb() + FindAgent.standrdFiveProb) % 100;
         let currFourProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb) % 100;
-        let currThreeProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb + FindAgent.standrdThreeProb) % 100;
+        //let currThreeProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb + FindAgent.standrdThreeProb) % 100;
+        if (this.minGuNum > 1) this.minGuNum--;
+        else if (this.minGuNum == 1) {
+            if (this.rand.Next() > 0.25) currSixProb = 100;
+            else {
+                currSixProb = 0;
+                currFiveProb = 100;
+            }
+        }
         this.lastIsTen = false;
         if (prob <= currSixProb) {
+            this.minGuNum = 0;
             //console.log('抽6');
             this.currAgentLevel = 6;
             this.sixTimes++;
@@ -222,6 +233,7 @@ class FindAgent {
             return this.currAgent
         }
         else if (prob <= currFiveProb) {
+            this.minGuNum = 0;
             //console.log('抽5');
             this.currAgentLevel = 5;
             this.fiveTimes++;
@@ -337,6 +349,10 @@ class FindAgent {
     public GetCurrAgentArray = (): string[] => {
         return this.currAgentArray;
     }
+
+    public GetMinGuNum = (): number => {
+        return this.minGuNum;
+    }
 }
 
 var findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
@@ -354,7 +370,8 @@ class ViewControl {
         $('#threenum').text(findAg.GetThreeTimes());
         let allTimes = findAg.GetSixTimes() + findAg.GetFiveTimes() + findAg.GetFourTimes() + findAg.GetThreeTimes();
         $('#moneycost').text(allTimes.toString() + ' / ' + SJManager.costMoney.toString());
-
+        if (findAg.GetMinGuNum() == 0) $('#tips').text('保底已出');
+        else $('#tips').text(findAg.GetMinGuNum() + '次内必定获得5星及以上干员');
     }
 
     public static ShowImg = (findAg: FindAgent): void => {
@@ -396,6 +413,8 @@ class ViewControl {
             $('#rad0').css('display', 'none');
         }
     }
+
+
 }
 
 

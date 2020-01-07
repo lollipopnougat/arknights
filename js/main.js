@@ -133,7 +133,7 @@ var SJManager = (function () {
         };
     }
     SJManager.compoundJade = 12000;
-    SJManager.sStone = 18;
+    SJManager.sStone = 56;
     SJManager.costMoney = 0;
     SJManager.CanCalsStoneJade = function (onceMode) {
         if (onceMode === void 0) { onceMode = true; }
@@ -188,15 +188,26 @@ var FindAgent = (function () {
         this.currAgentArray = [];
         this.lastIsTen = false;
         this.tenAgentLevel = [];
+        this.minGuNum = 10;
         this.DrawOnce = function () {
             _this.validDrawTimes++;
             var prob = _this.rand.Next(0, 100);
             var currSixProb = _this.AddSixProb() % 100;
             var currFiveProb = (_this.AddSixProb() + FindAgent.standrdFiveProb) % 100;
             var currFourProb = (_this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb) % 100;
-            var currThreeProb = (_this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb + FindAgent.standrdThreeProb) % 100;
+            if (_this.minGuNum > 1)
+                _this.minGuNum--;
+            else if (_this.minGuNum == 1) {
+                if (_this.rand.Next() > 0.25)
+                    currSixProb = 100;
+                else {
+                    currSixProb = 0;
+                    currFiveProb = 100;
+                }
+            }
             _this.lastIsTen = false;
             if (prob <= currSixProb) {
+                _this.minGuNum = 0;
                 _this.currAgentLevel = 6;
                 _this.sixTimes++;
                 _this.currAgent = _this.GetAgent(6, _this.isActivity && _this.rand.Next() > 0.5 && _this.actSix.length != 0);
@@ -204,6 +215,7 @@ var FindAgent = (function () {
                 return _this.currAgent;
             }
             else if (prob <= currFiveProb) {
+                _this.minGuNum = 0;
                 _this.currAgentLevel = 5;
                 _this.fiveTimes++;
                 _this.currAgent = _this.GetAgent(5, _this.isActivity && _this.rand.Next() > 0.5 && _this.actFive.length != 0);
@@ -324,6 +336,9 @@ var FindAgent = (function () {
         this.GetCurrAgentArray = function () {
             return _this.currAgentArray;
         };
+        this.GetMinGuNum = function () {
+            return _this.minGuNum;
+        };
         this.validDrawTimes = 0;
         this.isActivity = isActivity;
         this.sixActProbablity = sixActProb;
@@ -377,6 +392,10 @@ var ViewControl = (function () {
         $('#threenum').text(findAg.GetThreeTimes());
         var allTimes = findAg.GetSixTimes() + findAg.GetFiveTimes() + findAg.GetFourTimes() + findAg.GetThreeTimes();
         $('#moneycost').text(allTimes.toString() + ' / ' + SJManager.costMoney.toString());
+        if (findAg.GetMinGuNum() == 0)
+            $('#tips').text('保底已出');
+        else
+            $('#tips').text(findAg.GetMinGuNum() + '次内必定获得5星及以上干员');
     };
     ViewControl.ShowImg = function (findAg) {
         if (!findAg.isLastTen()) {
