@@ -1,0 +1,387 @@
+.center {
+  text-align: center;
+}
+
+@btn_padding_v: 10px;
+@btn_padding_h: 20px;
+@color_yellow: #debc02;
+@btn_font_size: 25px;
+@res_font_size: 3.2vw;
+@buy_font_size: 15px;
+@color_light: #eee;
+@color_grey: #d4d4d4;
+@color_dark: #2d2d2d;
+@color_jade: #8a2f00;
+@color_sstone: #c79a49;
+@color_light_yellow: #dacda5;
+@color_sstone2: #641312;
+@color_blue: #0086f3;
+@color_green: #009758;
+@color_light_green: #00ffc8;
+@color_pint: #cf4949;
+@btn_font_weight: 600;
+
+.do {
+  background-color: @color_grey;
+  cursor: pointer;
+  color: @color_dark;
+  font-family: '微软雅黑', '黑体';
+  font-size: @btn_font_size;
+  padding: @btn_padding_v @btn_padding_h;
+  font-weight: @btn_font_weight;
+  border: none;
+  margin-right: -3px;
+  margin-top: -3px;
+}
+
+body {
+  background-image: url('../img/bg.jpg');
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed; /*此条属性必须设置否则可能无效*/
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
+}
+
+h1 {
+  color: @color_blue;
+}
+
+.headline {
+  text-shadow: rgba(255, 255, 255, 0.7) 3px 0 0,
+    rgba(255, 255, 255, 0.7) 0 1px 0, rgba(255, 255, 255, 0.7) -1px 0 0,
+    rgba(255, 255, 255, 0.7) 0 -1px 0;
+  font-size: 40px;
+  font-weight: @btn_font_weight;
+}
+
+.viewbox {
+  text-align: center;
+}
+
+.radio-btn {
+  margin: 10px auto;
+}
+
+.rad-text {
+  margin: 5px auto;
+  font-family: '微软雅黑', '黑体';
+  color: @color_green;
+  font-size: @btn_font_size;
+  text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.radio-text {
+  color: @color_light;
+}
+
+.radio-btn button {
+  margin: 5px auto;
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: @buy_font_size;
+  background-color: @color_green;
+  transition: all 0.5s ease-out 0s;
+  color: @color_light;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.radio-btn button:hover {
+  background-color: @color_blue;
+}
+
+.radio-btn button:active {
+  background-color: @color_yellow;
+  color: @color_dark;
+}
+
+.dt {
+  background-color: @color_yellow;
+  color: @color_dark;
+  cursor: pointer;
+  font-family: '微软雅黑', '黑体';
+  font-size: @btn_font_size;
+  padding: @btn_padding_v @btn_padding_h;
+  font-weight: @btn_font_weight;
+  border: none;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+
+.btn-top {
+  display: block;
+  background-color: @color_dark;
+  width: 280px;
+  height: 40px;
+  position: relative;
+  top: 19px;
+  margin: 0 auto;
+}
+
+.toolbar {
+  display: inline-block;
+  background-color: @color_dark;
+  //   width: 280px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.toolbar2 {
+  display: inline-block;
+  background-color: @color_sstone2;
+  //   width: 280px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.toolbar-text {
+  font-size: @btn_font_size;
+  color: @color_light;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 20px 10px;
+  //   margin-left: 15px;
+}
+.toolbar-logo-text {
+  font-size: @btn_font_size;
+  color: @color_light;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 20px 0px;
+  //   margin-left: 15px;
+}
+
+.btn-top-text-f {
+  font-size: @btn_font_size;
+  color: @color_light;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 15px 0px;
+  //   margin-left: 15px;
+}
+
+.btn-top-text-b {
+  font-size: @btn_font_size;
+  color: @color_light;
+  font-family: '微软雅黑', '黑体';
+  vertical-align: top;
+  padding: 15px 0px;
+  //   margin-left: 25px;
+}
+.btn-top-text-btn {
+  font-size: @btn_font_size;
+  color: @color_light;
+  font-family: '微软雅黑', '黑体';
+  vertical-align: top;
+  left: -2px;
+  padding: 15px 5px 15px 0px;
+  cursor: pointer;
+  //   margin-left: 25px;
+}
+
+.result-area {
+  color: @color_green;
+  font-family: '微软雅黑', '黑体';
+  font-size: @res_font_size;
+  margin-top: 0;
+}
+
+.result-box {
+  display: block;
+  width: 90vw;
+  height: 35vw;
+  margin: auto;
+  border: @color_green 5px solid;
+  border-radius: 5px;
+}
+
+.img() {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.img1 {
+  .img();
+}
+
+.img-com-jade {
+  .img();
+  background-color: @color_jade;
+}
+
+.img-com-sstone {
+  .img();
+  background-color: @color_sstone;
+}
+
+.img-com-sstone2 {
+  .img();
+  background-color: @color_sstone2;
+}
+
+.sstone-buy-head {
+  color: @color_yellow;
+  margin-bottom: 0;
+}
+.sstone-buy button {
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: @buy_font_size;
+  background-color: @color_dark;
+  transition: all 0.5s ease-out 0s;
+  color: @color_light;
+  padding: @btn_padding_v @btn_padding_h;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.sstone-buy button:hover {
+  background-color: @color_yellow;
+  color: @color_dark;
+}
+
+.sstone-buy button:active {
+  background-color: @color_sstone;
+  color: @color_dark;
+}
+
+.package-buy-head {
+  color: @color_blue;
+  margin-bottom: 0;
+}
+
+.package-buy button {
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: @buy_font_size;
+  background-color: @color_blue;
+  transition: all 0.5s ease-out 0s;
+  color: @color_light;
+  padding: @btn_padding_v @btn_padding_h;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.package-buy button:hover {
+  background-color: @color_yellow;
+  color: @color_dark;
+}
+
+.package-buy button:active {
+  background-color: @color_sstone;
+  color: @color_dark;
+}
+
+.showbox h2 {
+  color: @color_green;
+  margin-bottom: 0;
+}
+
+.show {
+  font-family: '微软雅黑', '黑体';
+  font-weight: @btn_font_weight;
+  margin: 2px;
+}
+.agent-number {
+  font-family: '微软雅黑', '黑体';
+  font-weight: @btn_font_weight;
+  margin: 2px;
+}
+
+.showbox div {
+  width: 30%;
+  margin: 5px auto;
+}
+
+.six-star {
+  color: @color_yellow;
+}
+
+.five-star {
+  color: @color_light_yellow;
+}
+
+.four-star {
+  color: @color_blue;
+}
+
+.three-star {
+  color: @color_grey;
+}
+
+.money-num {
+  color: @color_pint;
+}
+
+.border() {
+  border: @color_dark 2px solid;
+  border-radius: 2px;
+}
+
+.six-box {
+  .border();
+  border-color: @color_yellow;
+}
+
+.five-box {
+  .border();
+  border-color: @color_light_yellow;
+}
+
+.four-box {
+  .border();
+  border-color: @color_blue;
+}
+
+.three-box {
+  .border();
+  border-color: @color_grey;
+}
+
+.money-box {
+  .border();
+  border-color: @color_pint;
+}
+
+.agen-img {
+  height: auto;
+  width: 8.75vw;
+  margin-top: 10px;
+}
+
+.footage {
+  color: @color_light;
+}
+
+
+a:link {
+  color: @color_blue;
+  text-decoration: none;
+}
+
+a:hover {
+  color: @color_yellow;
+}
+
+a:visited {
+  color: @color_grey;
+}

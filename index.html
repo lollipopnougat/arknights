@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./images/sourcestone.png" />
+    <script src="./js/main.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <title>明日方舟寻访模拟</title>
+</head>
+
+<body class="center">
+    <h1 class="headline">明日方舟干员寻访模拟器</h1>
+    <div class="toolbar2">
+        <img src="./images/sourcestone.png" class="img-com-sstone" />
+        <span class="toolbar-text" id="sstone">18</span>
+        <span class="toolbar-logo-text">&rarr;</span>
+        <img src="./images/jade.png" class="img-com-sstone2" />
+        <span class="toolbar-text" id="tojade">3240</span>
+    </div>
+    <div class="toolbar">
+        <img src="./images/jade.png" class="img-com-jade" />
+        <span class="toolbar-text" id="jade">12000</span>
+        <span class="btn-top-text-btn" onclick="ConvertStoneToJade()">+</span>
+    </div>
+    <div class="radio-btn">
+        <span class="rad-text">选择卡池</span><button onclick="location.reload()">重置</button><br>
+        <input type="radio" id="rad0" checked onchange="RadioChange()" name="select-type"/>
+        <span class="radio-text">【热情，膨胀，爆发!】(煌、灰喉、天火、安比尔概率提高)</span><br>
+        <input type="radio" id="rad1" onchange="RadioChange()" name="select-type"/>
+        <span class="radio-text">常驻标准寻访(银灰、安洁莉娜、初雪、芙兰卡、食铁兽概率提高)</span>
+        
+    </div>
+    <div class="viewbox">
+        <div class="btn-top center">
+            <img src="./images/jade.png" class="img1" />
+            <span class="btn-top-text-f">&times;600</span>
+            <span>&nbsp;&nbsp;</span>
+            <img src="./images/jade.png" class="img1" />
+            <span class="btn-top-text-b">&times;6000</span>
+        </div>
+        <br>
+        <button onclick="DrawOnce()" class="do">寻访一次</button>
+        <button onclick="DrawTenth()" class="dt">寻访十次</button>
+    </div>
+    <h1>结果</h1>
+    <div class="result-box">
+        <div id="image-box">
+        </div>
+
+        <p id="resu" class="result-area"></p>
+    </div>
+    <div class="sstone-buy">
+        <h2 class="sstone-buy-head">源石交易所</h2>
+        <button onclick="BuySStone(0)" id="buy-sstone0">氪金6元买1送2</button>
+        <button onclick="BuySStone(1)" id="buy-sstone1">氪金30元买6送6</button>
+        <button onclick="BuySStone(2)" id="buy-sstone2">氪金98元买20送20</button><br>
+        <button onclick="BuySStone(3)" id="buy-sstone3">氪金198元买40送40</button>
+        <button onclick="BuySStone(4)" id="buy-sstone4">氪金328元买66送66</button>
+        <button onclick="BuySStone(5)" id="buy-sstone5">氪金648元130送130</button>
+    </div>
+    <div class="package-buy">
+        <h2 class="package-buy-head">组合包</h2>
+        <button onclick="BuyPackage(128,0)" id="buy-package0">氪金128元每月寻访</button>
+        <button onclick="BuyPackage(128,1)" id="buy-package1">氪金128元新人寻访</button>
+        <button onclick="BuyPackage(198,2)" id="buy-package2">氪金198元新年礼包</button>
+    </div>
+
+    <div class="showbox">
+        <h2>数据统计</h2>
+        <div class="six-box">
+            <h3 class="show six-star">抽到六星干员数</h3>
+            <p class="agent-number six-star" id="sixnum">0</p>
+        </div>
+        <div class="five-box">
+            <h3 class="show five-star">抽到五星干员数</h3>
+            <p class="agent-number five-star" id="fivenum">0</p>
+        </div>
+        <div class="four-box">
+            <h3 class="show four-star">抽到四星干员数</h3>
+            <p class="agent-number four-star" id="fournum">0</p>
+        </div>
+        <div class="three-box">
+            <h3 class="show three-star">抽到三星干员数</h3>
+            <p class="agent-number three-star" id="threenum">0</p>
+        </div>
+        <div class="money-box">
+            <h3 class="show money-num">总抽取次数 / 氪金数</h3>
+            <p class="agent-number money-num" id="moneycost">0 / 0</p>
+        </div>
+        <p class="footage">Copyright <a href="https://github.com/lollipopnougat">lnp</a> 2020</p>
+    </div>
+
+</body>
+
+</html>

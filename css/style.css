@@ -1,0 +1,315 @@
+.center {
+  text-align: center;
+}
+.do {
+  background-color: #d4d4d4;
+  cursor: pointer;
+  color: #2d2d2d;
+  font-family: '微软雅黑', '黑体';
+  font-size: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  margin-right: -3px;
+  margin-top: -3px;
+}
+body {
+  background-image: url('../img/bg.jpg');
+  /* 背景图垂直、水平均居中 */
+  background-position: center center;
+  /* 背景图不平铺 */
+  background-repeat: no-repeat;
+  /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
+  background-attachment: fixed;
+  /*此条属性必须设置否则可能无效*/
+  /* 让背景图基于容器大小伸缩 */
+  background-size: cover;
+}
+h1 {
+  color: #0086f3;
+}
+.headline {
+  text-shadow: rgba(255, 255, 255, 0.7) 3px 0 0, rgba(255, 255, 255, 0.7) 0 1px 0, rgba(255, 255, 255, 0.7) -1px 0 0, rgba(255, 255, 255, 0.7) 0 -1px 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+.viewbox {
+  text-align: center;
+}
+.radio-btn {
+  margin: 10px auto;
+}
+.rad-text {
+  margin: 5px auto;
+  font-family: '微软雅黑', '黑体';
+  color: #009758;
+  font-size: 25px;
+  text-shadow: #fff 1px 0 0, #fff 0 1px 0, #fff -1px 0 0, #fff 0 -1px 0;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.radio-text {
+  color: #eee;
+}
+.radio-btn button {
+  margin: 5px auto;
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: 15px;
+  background-color: #009758;
+  transition: all 0.5s ease-out 0s;
+  color: #eee;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.radio-btn button:hover {
+  background-color: #0086f3;
+}
+.radio-btn button:active {
+  background-color: #debc02;
+  color: #2d2d2d;
+}
+.dt {
+  background-color: #debc02;
+  color: #2d2d2d;
+  cursor: pointer;
+  font-family: '微软雅黑', '黑体';
+  font-size: 25px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+.btn-top {
+  display: block;
+  background-color: #2d2d2d;
+  width: 280px;
+  height: 40px;
+  position: relative;
+  top: 19px;
+  margin: 0 auto;
+}
+.toolbar {
+  display: inline-block;
+  background-color: #2d2d2d;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+.toolbar2 {
+  display: inline-block;
+  background-color: #641312;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin: 0 auto;
+}
+.toolbar-text {
+  font-size: 25px;
+  color: #eee;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 20px 10px;
+}
+.toolbar-logo-text {
+  font-size: 25px;
+  color: #eee;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 20px 0px;
+}
+.btn-top-text-f {
+  font-size: 25px;
+  color: #eee;
+  font-family: '微软雅黑', '黑体';
+  top: -5px;
+  vertical-align: top;
+  padding: 15px 0px;
+}
+.btn-top-text-b {
+  font-size: 25px;
+  color: #eee;
+  font-family: '微软雅黑', '黑体';
+  vertical-align: top;
+  padding: 15px 0px;
+}
+.btn-top-text-btn {
+  font-size: 25px;
+  color: #eee;
+  font-family: '微软雅黑', '黑体';
+  vertical-align: top;
+  left: -2px;
+  padding: 15px 5px 15px 0px;
+  cursor: pointer;
+}
+.result-area {
+  color: #009758;
+  font-family: '微软雅黑', '黑体';
+  font-size: 3.2vw;
+  margin-top: 0;
+}
+.result-box {
+  display: block;
+  width: 90vw;
+  height: 35vw;
+  margin: auto;
+  border: #009758 5px solid;
+  border-radius: 5px;
+}
+.img1 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.img-com-jade {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #8a2f00;
+}
+.img-com-sstone {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #c79a49;
+}
+.img-com-sstone2 {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #641312;
+}
+.sstone-buy-head {
+  color: #debc02;
+  margin-bottom: 0;
+}
+.sstone-buy button {
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: 15px;
+  background-color: #2d2d2d;
+  transition: all 0.5s ease-out 0s;
+  color: #eee;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.sstone-buy button:hover {
+  background-color: #debc02;
+  color: #2d2d2d;
+}
+.sstone-buy button:active {
+  background-color: #c79a49;
+  color: #2d2d2d;
+}
+.package-buy-head {
+  color: #0086f3;
+  margin-bottom: 0;
+}
+.package-buy button {
+  border: none;
+  border-radius: 5px;
+  font-family: '微软雅黑', '黑体';
+  font-size: 15px;
+  background-color: #0086f3;
+  transition: all 0.5s ease-out 0s;
+  color: #eee;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.package-buy button:hover {
+  background-color: #debc02;
+  color: #2d2d2d;
+}
+.package-buy button:active {
+  background-color: #c79a49;
+  color: #2d2d2d;
+}
+.showbox h2 {
+  color: #009758;
+  margin-bottom: 0;
+}
+.show {
+  font-family: '微软雅黑', '黑体';
+  font-weight: 600;
+  margin: 2px;
+}
+.agent-number {
+  font-family: '微软雅黑', '黑体';
+  font-weight: 600;
+  margin: 2px;
+}
+.showbox div {
+  width: 30%;
+  margin: 5px auto;
+}
+.six-star {
+  color: #debc02;
+}
+.five-star {
+  color: #dacda5;
+}
+.four-star {
+  color: #0086f3;
+}
+.three-star {
+  color: #d4d4d4;
+}
+.money-num {
+  color: #cf4949;
+}
+.six-box {
+  border: #2d2d2d 2px solid;
+  border-radius: 2px;
+  border-color: #debc02;
+}
+.five-box {
+  border: #2d2d2d 2px solid;
+  border-radius: 2px;
+  border-color: #dacda5;
+}
+.four-box {
+  border: #2d2d2d 2px solid;
+  border-radius: 2px;
+  border-color: #0086f3;
+}
+.three-box {
+  border: #2d2d2d 2px solid;
+  border-radius: 2px;
+  border-color: #d4d4d4;
+}
+.money-box {
+  border: #2d2d2d 2px solid;
+  border-radius: 2px;
+  border-color: #cf4949;
+}
+.agen-img {
+  height: auto;
+  width: 8.75vw;
+  margin-top: 10px;
+}
+.footage {
+  color: #eee;
+}
+a:link {
+  color: #0086f3;
+  text-decoration: none;
+}
+a:hover {
+  color: #debc02;
+}
+a:visited {
+  color: #d4d4d4;
+}
