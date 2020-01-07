@@ -215,7 +215,7 @@ class FindAgent {
         //let currThreeProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb + FindAgent.standrdThreeProb) % 100;
         if (this.minGuNum > 1) this.minGuNum--;
         else if (this.minGuNum == 1) {
-            if (this.rand.Next() > 0.25) currSixProb = 100;
+            if (this.rand.Next(0, 3) == 3) currSixProb = 100;
             else {
                 currSixProb = 0;
                 currFiveProb = 100;
@@ -227,7 +227,7 @@ class FindAgent {
             //console.log('抽6');
             this.currAgentLevel = 6;
             this.sixTimes++;
-            this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next() > 0.5 && this.actSix.length != 0);
+            this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next() == 0 && this.actSix.length != 0);
             this.validDrawTimes = 0;
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent
@@ -237,7 +237,7 @@ class FindAgent {
             //console.log('抽5');
             this.currAgentLevel = 5;
             this.fiveTimes++;
-            this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next() > 0.5 && this.actFive.length != 0);
+            this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next() == 0 && this.actFive.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -245,7 +245,7 @@ class FindAgent {
             this.currAgentLevel = 4;
             this.fourTimes++;
             //console.log('抽4');
-            this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next() > 0.5 && this.actFour.length != 0);
+            this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next() == 0 && this.actFour.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -253,7 +253,7 @@ class FindAgent {
             //console.log('抽3');
             this.currAgentLevel = 3;
             this.threeTimes++;
-            this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next() > 0.5 && this.actThree.length != 0);
+            this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next() == 0 && this.actThree.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -526,6 +526,3 @@ function RadioChange() {
         findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
     }
 }
-
-
-

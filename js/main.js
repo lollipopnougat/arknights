@@ -198,7 +198,7 @@ var FindAgent = (function () {
             if (_this.minGuNum > 1)
                 _this.minGuNum--;
             else if (_this.minGuNum == 1) {
-                if (_this.rand.Next() > 0.25)
+                if (_this.rand.Next(0, 3) == 3)
                     currSixProb = 100;
                 else {
                     currSixProb = 0;
@@ -210,7 +210,7 @@ var FindAgent = (function () {
                 _this.minGuNum = 0;
                 _this.currAgentLevel = 6;
                 _this.sixTimes++;
-                _this.currAgent = _this.GetAgent(6, _this.isActivity && _this.rand.Next() > 0.5 && _this.actSix.length != 0);
+                _this.currAgent = _this.GetAgent(6, _this.isActivity && _this.rand.Next() == 0 && _this.actSix.length != 0);
                 _this.validDrawTimes = 0;
                 return _this.currAgent;
             }
@@ -218,19 +218,19 @@ var FindAgent = (function () {
                 _this.minGuNum = 0;
                 _this.currAgentLevel = 5;
                 _this.fiveTimes++;
-                _this.currAgent = _this.GetAgent(5, _this.isActivity && _this.rand.Next() > 0.5 && _this.actFive.length != 0);
+                _this.currAgent = _this.GetAgent(5, _this.isActivity && _this.rand.Next() == 0 && _this.actFive.length != 0);
                 return _this.currAgent;
             }
             else if (prob <= currFourProb) {
                 _this.currAgentLevel = 4;
                 _this.fourTimes++;
-                _this.currAgent = _this.GetAgent(4, _this.isActivity && _this.rand.Next() > 0.5 && _this.actFour.length != 0);
+                _this.currAgent = _this.GetAgent(4, _this.isActivity && _this.rand.Next() == 0 && _this.actFour.length != 0);
                 return _this.currAgent;
             }
             else {
                 _this.currAgentLevel = 3;
                 _this.threeTimes++;
-                _this.currAgent = _this.GetAgent(3, _this.isActivity && _this.rand.Next() > 0.5 && _this.actThree.length != 0);
+                _this.currAgent = _this.GetAgent(3, _this.isActivity && _this.rand.Next() == 0 && _this.actThree.length != 0);
                 return _this.currAgent;
             }
         };
