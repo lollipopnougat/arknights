@@ -150,13 +150,13 @@ h1 {
 .result-area {
   color: #009758;
   font-family: '微软雅黑', '黑体';
-  font-size: 3.2vw;
+  font-size: 3vw;
   margin-top: 0;
 }
 .result-box {
   display: block;
   width: 90vw;
-  height: 35vw;
+  height: 35.5vw;
   margin: auto;
   border: #009758 5px solid;
   border-radius: 5px;
