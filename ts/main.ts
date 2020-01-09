@@ -14,15 +14,15 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
-const sixActivity0 = ['银灰', '安洁莉娜']; // 活动卡池
+const sixActivity0 = ['赫拉格', '闪灵']; // 活动卡池
 
-const fiveActivity0 = ['初雪', '芙兰卡', '食铁兽'];
+const fiveActivity0 = ['凛冬', '华法琳', '狮蝎'];
 
-const sixActivity1 = ['煌'];
+//const sixActivity1 = ['煌'];
 
-const fiveActivity1 = ['灰喉', '天火'];
+//const fiveActivity1 = ['灰喉', '天火'];
 
-const fourActivity1 = ['安比尔'];
+//const fourActivity1 = ['安比尔'];
 //var compoundJade = 12000;
 //var sstone = 0;
 
@@ -355,7 +355,7 @@ class FindAgent {
     }
 }
 
-var findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
+var findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0,);
 var sjManager = new SJManager();
 
 class ViewControl {
@@ -522,7 +522,7 @@ function RadioChange() {
     if ($('#rad0').prop('checked')) {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
-    else if ($('#rad1').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
-    }
+    // else if ($('#rad1').prop('checked')) {
+    //     findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
+    // }
 }
