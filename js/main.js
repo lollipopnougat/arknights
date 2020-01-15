@@ -8,6 +8,8 @@ var sstoneMoney = [6, 30, 98, 198, 328, 648];
 var sstoneFEx = [3, 12, 40, 80, 132, 260];
 var sixActivity0 = ['赫拉格', '闪灵'];
 var fiveActivity0 = ['凛冬', '华法琳', '狮蝎'];
+var sixActivity1 = ['年', '阿'];
+var fiveActivity1 = ['吽'];
 var Random = (function () {
     function Random() {
         this.Next = function (min, max) {
@@ -530,6 +532,9 @@ function ConvertStoneToJade() {
 function RadioChange() {
     if ($('#rad0').prop('checked')) {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+    }
+    else if ($('#rad1').prop('checked')) {
+        findAgent = new FindAgent(true, 70, sixActivity1, 50, fiveActivity1);
     }
 }
 //# sourceMappingURL=main.js.map
