@@ -6,9 +6,9 @@ const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', 
 
 const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡']
 
-const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '2020新年礼包 (源石*51, 10连凭证*1, 合成玉*2020)'];
+const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '迎春组合包 (源石*90, 10连凭证*1)'];
 
-const sstoneNum = [1, 6, 20, 40, 66, 130]; // 源石礼包中的源石数
+const sstoneNum = [1, 7, 24, 50, 90, 185]; // 源石礼包中的源石数
 
 const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
@@ -118,7 +118,7 @@ class SJManager {
         switch (type) {
             case 0: this.AddStone(42); this.AddJade(6000); this.AddMoney(128); break;
             case 1: this.AddJade(12000); this.AddMoney(128); break;
-            case 2: this.AddStone(51); this.AddJade(2020); this.AddMoney(198); break;
+            case 2: this.AddStone(90); this.AddJade(6000); this.AddMoney(328); break;
             default: throw new Error('不存在价格为 ' + money.toString() + ' 的组合包');
         }
 
