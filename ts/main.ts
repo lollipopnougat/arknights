@@ -14,9 +14,9 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
-const sixActivity0 = ['赫拉格', '闪灵']; // 活动卡池
+const sixActivity0 = ['陈', '推进之王']; // 活动卡池
 
-const fiveActivity0 = ['凛冬', '华法琳', '狮蝎'];
+const fiveActivity0 = ['德克萨斯', '真理', '雷蛇'];
 
 const sixActivity1 = ['年','阿'];
 
