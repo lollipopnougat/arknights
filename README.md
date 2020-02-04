@@ -10,7 +10,7 @@
 
 ## 使用方法
 
-### 如果只是模拟抽卡~~（氪金）~~，请访问托管页面：<br>
+### 如果只是模拟抽卡，请访问托管页面：<br>
 
 [Github Pages地址(推荐)](https://lollipopnougat.github.io/arknights/)<br>
 [Coding Pages地址(已废弃)](https://crepe.coding.me/arknights/)<br>
