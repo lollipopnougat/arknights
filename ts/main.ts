@@ -18,9 +18,9 @@ const sixActivity0 = ['陈', '推进之王']; // 活动卡池
 
 const fiveActivity0 = ['德克萨斯', '真理', '雷蛇'];
 
-// const sixActivity1 = ['年','阿'];
+const sixActivity1 = ['斯卡蒂','艾雅法拉'];
 
-// const fiveActivity1 = ['吽'];
+const fiveActivity1 = ['夜魔','诗怀雅','赫默'];
 
 //const sixActivity1 = ['煌'];
 
@@ -526,7 +526,7 @@ function RadioChange() {
     if ($('#rad0').prop('checked')) {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
-    // else if ($('#rad1').prop('checked')) {
-    //     findAgent = new FindAgent(true, 70, sixActivity1, 50, fiveActivity1);
-    // }
+    else if ($('#rad1').prop('checked')) {
+        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
+    }
 }
