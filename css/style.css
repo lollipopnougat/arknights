@@ -48,7 +48,8 @@ h1 {
   margin-right: 10px;
 }
 .radio-text {
-  color: #eee;
+  color: #009758;
+  font-weight: 800;
 }
 .radio-btn button {
   margin: 5px auto;

@@ -14,9 +14,9 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
-const sixActivity0 = ['陈', '推进之王']; // 活动卡池
+// const sixActivity0 = ['陈', '推进之王']; // 活动卡池
 
-const fiveActivity0 = ['德克萨斯', '真理', '雷蛇'];
+// const fiveActivity0 = ['德克萨斯', '真理', '雷蛇'];
 
 const sixActivity1 = ['斯卡蒂', '艾雅法拉'];
 
@@ -359,7 +359,7 @@ class FindAgent {
     }
 }
 
-var findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+var findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
 var sjManager = new SJManager();
 
 class ViewControl {
@@ -523,10 +523,11 @@ function ConvertStoneToJade() {
 }
 
 function RadioChange() {
-    if ($('#rad0').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
-    }
-    else if ($('#rad1').prop('checked')) {
+    // if ($('#rad0').prop('checked')) {
+    //     findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+    // }
+    // else 
+    if ($('#rad1').prop('checked')) {
         findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
     }
 }
