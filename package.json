@@ -5,7 +5,9 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && lessc css/style.less css/style.css"
+    "start": "tsc && lessc css/style.less css/style.css",
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
   },
   "keywords": [
     "arknights"
@@ -13,6 +15,15 @@
   "author": "lnp",
   "license": "MIT",
   "devDependencies": {
-    "@types/jquery": "^3.3.31"
+    "@types/jquery": "^3.3.31",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "typescript": "^3.7.5"
   }
 }
