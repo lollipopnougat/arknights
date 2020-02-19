@@ -6,8 +6,8 @@ var packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻�
 var sstoneNum = [1, 7, 24, 50, 90, 185];
 var sstoneMoney = [6, 30, 98, 198, 328, 648];
 var sstoneFEx = [3, 12, 40, 80, 132, 260];
-var sixActivity1 = ['斯卡蒂', '艾雅法拉'];
-var fiveActivity1 = ['夜魔', '诗怀雅', '赫默'];
+var sixActivity0 = ['麦哲伦', '星熊'];
+var fiveActivity0 = ['送葬人', '红', '白面鸮'];
 var Random = (function () {
     function Random() {
         this.Next = function (min, max) {
@@ -373,7 +373,7 @@ var FindAgent = (function () {
     FindAgent.standrdThreeProb = 40;
     return FindAgent;
 }());
-var findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
+var findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
 var sjManager = new SJManager();
 var ViewControl = (function () {
     function ViewControl() {
@@ -528,8 +528,8 @@ function ConvertStoneToJade() {
     }
 }
 function RadioChange() {
-    if ($('#rad1').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
+    if ($('#rad0').prop('checked')) {
+        findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
 }
 //# sourceMappingURL=main.js.map

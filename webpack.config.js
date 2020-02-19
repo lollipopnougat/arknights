@@ -6,7 +6,6 @@ module.exports = {
     module: {
         rules: [{
                 test: /\.tsx?$/,
-                // ts-loader是官方提供的处理tsx的文件
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
@@ -19,6 +18,6 @@ module.exports = {
 
     output: {
         filename: 'main.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'js')
     }
 }
