@@ -5,11 +5,7 @@
         "target": "es5",
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true,
-        "outDir": "./js/"
-    },
-    "files": [
-        "./ts/main.ts"
-    ]
+        "sourceMap": true
+    }
     
 }

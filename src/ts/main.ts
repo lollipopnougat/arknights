@@ -1,10 +1,12 @@
-const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿']
+import "../css/style.css";
+var $ = require('jquery');
+const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏'];
 
-const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽']
+const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰'];
 
-const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔']
+const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔'];
 
-const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡']
+const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 
 const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '迎春组合包 (源石*90, 10连凭证*1)'];
 
@@ -14,9 +16,20 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
-const sixActivity0 = ['麦哲伦', '星熊']; // 活动卡池
+const sixActivity0 = ['银灰', '塞雷娅']; // 活动卡池
 
-const fiveActivity0 = ['送葬人', '红', '白面鸮'];
+const fiveActivity0 = ['蓝毒', '崖心', '苇草'];
+
+const sixActivity1 = ['风笛'];
+
+const fiveActivity1 = ['摄砂', '凛冬'];
+
+const fourActivity1 = ['宴'];
+
+const activity = 0;// 0: 0 1: 1 2: 0&1
+
+
+var player: JQuery<HTMLAudioElement>;
 
 // const sixActivity1 = ['斯卡蒂', '艾雅法拉'];
 
@@ -380,10 +393,10 @@ class ViewControl {
 
     public static ShowImg = (findAg: FindAgent): void => {
         if (!findAg.isLastTen()) {
-            $('#image-box').html('<img id="img-agent0" src="./img/' + findAg.GetLastAgentLevel().toString() + '/' + findAg.GetCurrAgent() + '.jpg" class="agen-img">');
+            $('#image-box').html('<img id="img-agent0" src="./images/' + findAg.GetLastAgentLevel().toString() + '/' + findAg.GetCurrAgent() + '.jpg" class="agen-img">');
         }
         else {
-            let img0 = '<img id="img-agent0" src="./img/';
+            let img0 = '<img id="img-agent0" src="./images/';
             let imgs: string = '';
             let LevelArray = findAg.GetLastAgentsLevelArray();
             let agents = findAg.GetCurrAgentArray();
@@ -391,6 +404,9 @@ class ViewControl {
                 imgs += (img0 + LevelArray[i].toString() + '/' + agents[i].toString() + '.jpg" class="agen-img">');
             }
             $('#image-box').html(imgs);
+            if ($('#bgm')) {
+                $('')
+            }
         }
     }
 
@@ -424,6 +440,9 @@ class ViewControl {
 
 
 function DrawOnce() {
+    if (player[0].paused) {
+        player[0].play();
+    }
     try {
         ViewControl.HideRadio();
         if (SJManager.compoundJade - 600 < 0) {
@@ -452,6 +471,9 @@ function DrawOnce() {
 }
 
 function DrawTenth() {
+    if (player[0].paused) {
+        player[0].play();
+    }
     //console.log('点击了寻访十次');
     try {
         ViewControl.HideRadio();
@@ -480,6 +502,9 @@ function DrawTenth() {
 }
 
 function BuySStone(type: number) {
+    if (player[0].paused) {
+        player[0].play();
+    }
     try {
         let num;
         if (sjManager.isFirstBuy(type)) num = sstoneFEx[type];
@@ -497,6 +522,9 @@ function BuySStone(type: number) {
 }
 
 function BuyPackage(money: number, type: number) {
+    if (player[0].paused) {
+        player[0].play();
+    }
     try {
         let result: boolean = confirm('是否花费' + money.toString() + '元购买 ' + packageDesc[type] + ' ?');
         if (!result) return;
@@ -509,6 +537,9 @@ function BuyPackage(money: number, type: number) {
 }
 
 function ConvertStoneToJade() {
+    if (player[0].paused) {
+        player[0].play();
+    }
     try {
         let num = parseInt(prompt("请输入您想要兑换的源石数量：", "1"));
         if (isNaN(num)) num = 1;
@@ -523,11 +554,35 @@ function ConvertStoneToJade() {
 }
 
 function RadioChange() {
+    if (player[0].paused) {
+        player[0].play();
+    }
     if ($('#rad0').prop('checked')) {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
-    // else 
-//     if ($('#rad1').prop('checked')) {
-//         findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1);
-//     }
+    else if ($('#rad1').prop('checked')) {
+        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
+    }
 }
+
+window.onload = function () {
+    player = $('#bgm');
+    $('#CSTJ').on('click', ConvertStoneToJade);
+    if ($('#rad0')) {
+        $('#rad0').on('change', RadioChange);
+    }
+    if ($('#rad1')) {
+        $('#rad1').on('change', RadioChange);
+    }
+    for (let i = 0; i < 6; i++) {
+        $(`#buy-sstone${i}`).on('click', function () { BuySStone(i); });
+    }
+
+    $('#buy-package0').on('click', function () { BuyPackage(128, 0); });
+    $('#buy-package1').on('click', function () { BuyPackage(128, 1); });
+    $('#buy-package2').on('click', function () { BuyPackage(328, 2); });
+    $('#DO').on('click', DrawOnce);
+    $('#DT').on('click', DrawTenth);
+}
+
+
