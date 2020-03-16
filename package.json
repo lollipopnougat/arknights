@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cp -r src/img dist/images webpack",
+    "prebuild": "cpr src/img dist/images",
+    "build": "webpack",
     "dev": "webpack-dev-server --open"
   },
   "keywords": [
@@ -27,6 +28,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "cpr": "^3.0.1",
     "css-loader": "^3.4.2",
     "img-loader": "^3.0.1",
     "jquery": "^3.4.1",
