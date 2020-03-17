@@ -16,17 +16,33 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
+const act0AgentLevel = {
+    '6': 2,
+    '5': 3,
+    '4': 0,
+    '3': 0
+};
+
+const act1AgentLevel = {
+    '6': 1,
+    '5': 2,
+    '4': 1,
+    '3': 0
+};
+
+const act0Title = '常驻标准寻访';
+
+const act1Title = '草垛上的风笛声';
+
 const sixActivity0 = ['银灰', '塞雷娅']; // 活动卡池
 
 const fiveActivity0 = ['蓝毒', '崖心', '苇草'];
 
 const sixActivity1 = ['风笛'];
 
-const fiveActivity1 = ['摄砂', '凛冬'];
+const fiveActivity1 = ['慑砂', '凛冬'];
 
 const fourActivity1 = ['宴'];
-
-const activity = 0;// 0: 0 1: 1 2: 0&1
 
 
 var player: JQuery<HTMLAudioElement>;
@@ -570,9 +586,13 @@ window.onload = function () {
     $('#CSTJ').on('click', ConvertStoneToJade);
     if ($('#rad0')) {
         $('#rad0').on('change', RadioChange);
+        let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
+        $('#act0').text(text);
     }
     if ($('#rad1')) {
         $('#rad1').on('change', RadioChange);
+        let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+        $('#act1').text(text);
     }
     for (let i = 0; i < 6; i++) {
         $(`#buy-sstone${i}`).on('click', function () { BuySStone(i); });
