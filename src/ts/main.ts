@@ -34,9 +34,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '草垛上的风笛声';
 
-const sixActivity0 = ['伊芙利特', '莫斯提马']; // 活动卡池
+const sixActivity0 = ['陈', '闪灵']; // 活动卡池
 
-const fiveActivity0 = ['幽灵鲨', '食铁兽', '槐琥'];
+const fiveActivity0 = ['可颂', '凛冬', '陨星'];
 
 const sixActivity1 = ['风笛'];
 
