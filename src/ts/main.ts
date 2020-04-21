@@ -32,17 +32,17 @@ const act1AgentLevel = {
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '草垛上的风笛声';
+const act1Title = '生于黑夜';
 
 const sixActivity0 = ['陈', '闪灵']; // 活动卡池
 
 const fiveActivity0 = ['可颂', '凛冬', '陨星'];
 
-const sixActivity1 = ['风笛'];
+const sixActivity1 = ['傀影'];
 
-const fiveActivity1 = ['慑砂', '凛冬'];
+const fiveActivity1 = ['巫恋', '白面鸮'];
 
-const fourActivity1 = ['宴'];
+const fourActivity1 = ['刻刀'];
 
 
 var player: JQuery<HTMLAudioElement>;
