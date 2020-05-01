@@ -34,15 +34,15 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '生于黑夜';
 
-const sixActivity0 = ['陈', '闪灵']; // 活动卡池
+const sixActivity0 = ['安洁莉娜', '斯卡蒂']; // 活动卡池
 
-const fiveActivity0 = ['可颂', '凛冬', '陨星'];
+const fiveActivity0 = ['夜魔', '空', '拉普兰德'];
 
-const sixActivity1 = ['傀影'];
+const sixActivity1 = ['W','温蒂'];
 
-const fiveActivity1 = ['巫恋', '白面鸮'];
+const fiveActivity1 = ['极境'];
 
-const fourActivity1 = ['刻刀'];
+const fourActivity1:string[] = [];
 
 
 var player: JQuery<HTMLAudioElement>;
@@ -591,7 +591,8 @@ window.onload = function () {
     }
     if ($('#rad1')) {
         $('#rad1').on('change', RadioChange);
-        let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+        //let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+        let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + ')';
         $('#act1').text(text);
     }
     for (let i = 0; i < 6; i++) {
