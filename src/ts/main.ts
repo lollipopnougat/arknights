@@ -32,7 +32,7 @@ const act1AgentLevel = {
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '生于黑夜';
+const act1Title = '遗愿焰火';
 
 const sixActivity0 = ['安洁莉娜', '斯卡蒂']; // 活动卡池
 
