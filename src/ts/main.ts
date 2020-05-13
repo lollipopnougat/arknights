@@ -34,9 +34,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '遗愿焰火';
 
-const sixActivity0 = ['安洁莉娜', '斯卡蒂']; // 活动卡池
+const sixActivity0 = ['黑', '推进之王']; // 活动卡池
 
-const fiveActivity0 = ['夜魔', '空', '拉普兰德'];
+const fiveActivity0 = ['雷蛇', '诗怀雅', '红'];
 
 const sixActivity1 = ['W','温蒂'];
 
