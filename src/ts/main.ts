@@ -8,7 +8,7 @@ const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', 
 
 const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 
-const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '迎春组合包 (源石*90, 10连凭证*1)'];
+const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '周年组合包 (源石*90, 10连凭证*1)'];
 
 const sstoneNum = [1, 7, 24, 50, 90, 185]; // 源石礼包中的源石数
 
@@ -32,17 +32,17 @@ const act1AgentLevel = {
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '遗愿焰火';
+const act1Title = '特定干员定向寻访';
 
 const sixActivity0 = ['黑', '推进之王']; // 活动卡池
 
 const fiveActivity0 = ['雷蛇', '诗怀雅', '红'];
 
-const sixActivity1 = ['W','温蒂'];
+const sixActivity1 = ['赫拉格', '莫斯提马', '煌', '塞雷娅'];
 
-const fiveActivity1 = ['极境'];
+const fiveActivity1 = ['临光', '守林人', '格劳克斯', '送葬人', '灰喉', '吽'];
 
-const fourActivity1:string[] = [];
+const fourActivity1: string[] = [];
 
 
 var player: JQuery<HTMLAudioElement>;
@@ -260,7 +260,7 @@ class FindAgent {
             //console.log('抽6');
             this.currAgentLevel = 6;
             this.sixTimes++;
-            this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next() == 0 && this.actSix.length != 0);
+            this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next(0, 100) <= this.sixActProbablity && this.actSix.length != 0);
             this.validDrawTimes = 0;
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent
@@ -270,7 +270,7 @@ class FindAgent {
             //console.log('抽5');
             this.currAgentLevel = 5;
             this.fiveTimes++;
-            this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next() == 0 && this.actFive.length != 0);
+            this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next(0, 100) <= this.fiveActProbablity && this.actFive.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -278,7 +278,7 @@ class FindAgent {
             this.currAgentLevel = 4;
             this.fourTimes++;
             //console.log('抽4');
-            this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next() == 0 && this.actFour.length != 0);
+            this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next(0, 100) <= this.fourActProbablity && this.actFour.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -286,7 +286,7 @@ class FindAgent {
             //console.log('抽3');
             this.currAgentLevel = 3;
             this.threeTimes++;
-            this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next() == 0 && this.actThree.length != 0);
+            this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next(0, 100) <= this.threeActProbablity && this.actThree.length != 0);
             //console.log('当前抽到: ' + currAgent);
             return this.currAgent;
         }
@@ -577,7 +577,7 @@ function RadioChange() {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
     else if ($('#rad1').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
+        findAgent = new FindAgent(true, 100, sixActivity1, 100, fiveActivity1);
     }
 }
 
@@ -599,7 +599,7 @@ window.onload = function () {
         $(`#buy-sstone${i}`).on('click', function () { BuySStone(i); });
     }
 
-    $('#buy-package0').on('click', function () { BuyPackage(128, 0); });
+    $('#buy-package0').on('click', function () { BuyPackage(168, 0); });
     $('#buy-package1').on('click', function () { BuyPackage(128, 1); });
     $('#buy-package2').on('click', function () { BuyPackage(328, 2); });
     $('#DO').on('click', DrawOnce);
