@@ -145,7 +145,7 @@ class SJManager {
 
     public BuyPackage = (money: number, type: number): void => {
         switch (type) {
-            case 0: this.AddStone(42); this.AddJade(6000); this.AddMoney(128); break;
+            case 0: this.AddStone(42); this.AddJade(6000); this.AddMoney(168); break;
             case 1: this.AddJade(12000); this.AddMoney(128); break;
             case 2: this.AddStone(90); this.AddJade(6000); this.AddMoney(328); break;
             default: throw new Error('不存在价格为 ' + money.toString() + ' 的组合包');
