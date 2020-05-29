@@ -34,9 +34,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '特定干员定向寻访';
 
-const sixActivity0 = ['黑', '推进之王']; // 活动卡池
+const sixActivity0 = ['阿', '艾雅法拉']; // 活动卡池
 
-const fiveActivity0 = ['雷蛇', '诗怀雅', '红'];
+const fiveActivity0 = ['狮蝎', '华法琳', '惊蛰'];
 
 const sixActivity1 = ['赫拉格', '莫斯提马', '煌', '塞雷娅'];
 
