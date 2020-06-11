@@ -32,11 +32,11 @@ const act1AgentLevel = {
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '特定干员定向寻访';
+const act1Title = '雾漫荒林';
 
-const sixActivity0 = ['阿', '艾雅法拉']; // 活动卡池
+const sixActivity0 = ['麦哲伦', '星熊']; // 活动卡池
 
-const fiveActivity0 = ['狮蝎', '华法琳', '惊蛰'];
+const fiveActivity0 = ['白面鸮', '德克萨斯', '真理'];
 
 const sixActivity1: string[] = [];
 
