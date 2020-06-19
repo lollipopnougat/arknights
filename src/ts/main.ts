@@ -40,7 +40,7 @@ const fiveActivity0 = ['白面鸮', '德克萨斯', '真理'];
 
 const sixActivity1: string[] = ['早露'];
 
-const fiveActivity1 = ['莱恩哈特'];
+const fiveActivity1 = ['莱恩哈特', '真理'];
 
 const fourActivity1: string[] = ['波登可'];
 
@@ -577,7 +577,7 @@ function RadioChange() {
         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
     }
     else if ($('#rad1').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 50, fourActivity1);
+        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
     }
 }
 
