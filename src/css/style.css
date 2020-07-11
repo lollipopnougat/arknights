@@ -273,6 +273,7 @@ button.close-btn:active {
   font-family: '微软雅黑', '黑体';
   font-weight: 600;
   margin: 2px;
+  cursor: pointer;
 }
 .showbox div {
   width: 30%;

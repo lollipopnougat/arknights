@@ -67,20 +67,8 @@ const act1Prob: HuntProb = {
 }
 
 
-
 var player: JQuery<HTMLAudioElement>;
 
-// const sixActivity1 = ['斯卡蒂', '艾雅法拉'];
-
-// const fiveActivity1 = ['夜魔', '诗怀雅', '赫默'];
-
-//const sixActivity1 = ['煌'];
-
-//const fiveActivity1 = ['灰喉', '天火'];
-
-//const fourActivity1 = ['安比尔'];
-//var compoundJade = 12000;
-//var sstone = 0;
 
 class Random {
     constructor() {
@@ -95,18 +83,36 @@ class Random {
 
 }
 
+interface BuyData {
+    [key: string]: number;
+}
+
 class Counter {
     private FindTimes: number;
     private FindSix: string[];
     private FindFive: string[];
     private FindFour: string[];
     private FindThree: string[];
+    private SpendData: BuyData;
+    private SpendMoney: number;
     public constructor() {
         this.FindTimes = 0;
         this.FindSix = [];
         this.FindFive = [];
         this.FindFour = [];
         this.FindThree = [];
+        this.SpendData = {};
+        this.SpendMoney = 0;
+    }
+
+    public Spend = (name: string, money: number) => {
+        this.SpendMoney += money;
+        if (this.SpendData.hasOwnProperty(`${money}元${name}`)) {
+            this.SpendData[`${money}元${name}`] += 1;
+        }
+        else {
+            this.SpendData[`${money}元${name}`] = 1;
+        }
     }
 
     public AddSix = (val: string) => {
@@ -149,22 +155,31 @@ class Counter {
         return this.FindThree;
     }
 
+    public GetSpendingData = (): BuyData => {
+        return this.SpendData;
+    }
+
+    public GetSpendingMoney = (): number => {
+        return this.SpendMoney;
+    }
+
 }
 
 
 class SJManager {
     public static compoundJade = 12000;
     public static sStone = 56;
-    public static costMoney = 0;
+    //public static costMoney = 0;
     private isFirstBuySStone0: boolean = true;
     private isFirstBuySStone1: boolean = true;
     private isFirstBuySStone2: boolean = true;
     private isFirstBuySStone3: boolean = true;
     private isFirstBuySStone4: boolean = true;
     private isFirstBuySStone5: boolean = true;
+    private counter: Counter;
 
-    constructor() {
-
+    constructor(count: Counter) {
+        this.counter = count;
     }
 
     public IsFirstBuy = (type: number): boolean => {
@@ -205,12 +220,72 @@ class SJManager {
 
     public BuySStone = (type: number): void => {
         switch (type) {
-            case 0: if (this.isFirstBuySStone0) this.AddStone(sstoneFEx[0]); else this.AddStone(sstoneNum[0]); this.AddMoney(sstoneMoney[0]); this.isFirstBuySStone0 = false; break;
-            case 1: if (this.isFirstBuySStone1) this.AddStone(sstoneFEx[1]); else this.AddStone(sstoneNum[1]); this.AddMoney(sstoneMoney[1]); this.isFirstBuySStone1 = false; break;
-            case 2: if (this.isFirstBuySStone2) this.AddStone(sstoneFEx[2]); else this.AddStone(sstoneNum[2]); this.AddMoney(sstoneMoney[2]); this.isFirstBuySStone2 = false; break;
-            case 3: if (this.isFirstBuySStone3) this.AddStone(sstoneFEx[3]); else this.AddStone(sstoneNum[3]); this.AddMoney(sstoneMoney[3]); this.isFirstBuySStone3 = false; break;
-            case 4: if (this.isFirstBuySStone4) this.AddStone(sstoneFEx[4]); else this.AddStone(sstoneNum[4]); this.AddMoney(sstoneMoney[4]); this.isFirstBuySStone4 = false; break;
-            case 5: if (this.isFirstBuySStone5) this.AddStone(sstoneFEx[5]); else this.AddStone(sstoneNum[5]); this.AddMoney(sstoneMoney[5]); this.isFirstBuySStone5 = false; break;
+            case 0:
+                if (this.isFirstBuySStone0) {
+                    this.AddStone(sstoneFEx[0]);
+                    this.counter.Spend(`${sstoneFEx[0]} 源石`, sstoneMoney[0]);
+                } else {
+                    this.AddStone(sstoneNum[0]);
+                    this.counter.Spend(`${sstoneNum[0]} 源石`, sstoneMoney[0]);
+                }
+                //this.AddMoney(sstoneMoney[0]);
+                this.isFirstBuySStone0 = false;
+                break;
+            case 1:
+                if (this.isFirstBuySStone1) {
+                    this.AddStone(sstoneFEx[1]);
+                    this.counter.Spend(`${sstoneFEx[1]} 源石`, sstoneMoney[1]);
+                } else {
+                    this.AddStone(sstoneNum[1]);
+                    this.counter.Spend(`${sstoneNum[1]} 源石`, sstoneMoney[1]);
+                }
+                //this.AddMoney(sstoneMoney[1]);
+                this.isFirstBuySStone1 = false;
+                break;
+            case 2:
+                if (this.isFirstBuySStone2) {
+                    this.AddStone(sstoneFEx[2]);
+                    this.counter.Spend(`${sstoneFEx[2]} 源石`, sstoneMoney[2]);
+                } else {
+                    this.AddStone(sstoneNum[2]);
+                    this.counter.Spend(`${sstoneNum[2]} 源石`, sstoneMoney[2]);
+                }
+                //this.AddMoney(sstoneMoney[2]); 
+                this.isFirstBuySStone2 = false;
+                break;
+            case 3:
+                if (this.isFirstBuySStone3) {
+                    this.AddStone(sstoneFEx[3]);
+                    this.counter.Spend(`${sstoneFEx[3]} 源石`, sstoneMoney[3]);
+                } else {
+                    this.AddStone(sstoneNum[3]);
+                    this.counter.Spend(`${sstoneNum[3]} 源石`, sstoneMoney[3]);
+                }
+                //this.AddMoney(sstoneMoney[3]); 
+                this.isFirstBuySStone3 = false;
+                break;
+            case 4:
+                if (this.isFirstBuySStone4) {
+                    this.AddStone(sstoneFEx[4]);
+                    this.counter.Spend(`${sstoneFEx[4]} 源石`, sstoneMoney[4]);
+                } else {
+                    this.AddStone(sstoneNum[4]);
+                    this.counter.Spend(`${sstoneNum[4]} 源石`, sstoneMoney[4]);
+                }
+                //this.AddMoney(sstoneMoney[4]); 
+                this.isFirstBuySStone4 = false;
+                break;
+            case 5:
+                if (this.isFirstBuySStone5) {
+                    this.AddStone(sstoneFEx[5]);
+                    this.counter.Spend(`${sstoneFEx[5]} 源石`, sstoneMoney[5]);
+                } else {
+                    this.AddStone(sstoneNum[5]);
+                    this.counter.Spend(`${sstoneNum[5]} 源石`, sstoneMoney[5]);
+                }
+                //this.AddMoney(sstoneMoney[5]); 
+                this.isFirstBuySStone5 = false;
+                break;
             default: throw new Error('不存在价格为 ' + sstoneMoney[type].toString() + ' 的源石商品');
         }
 
@@ -225,10 +300,29 @@ class SJManager {
 
     public BuyPackage = (money: number, type: number): void => {
         switch (type) {
-            case 0: this.AddStone(42); this.AddJade(6000); this.AddMoney(168); break;
-            case 1: this.AddJade(12000); this.AddMoney(128); break;
-            case 2: this.AddStone(90); this.AddJade(6000); this.AddMoney(328); break;
-            case 3: this.AddStone(6); this.AddMoney(30); this.AddJade(6000); break;
+            case 0:
+                this.AddStone(42);
+                this.AddJade(6000);
+                this.counter.Spend('每月寻访礼包', 168);
+                //this.AddMoney(168);
+                break;
+            case 1:
+                this.AddJade(12000);
+                this.counter.Spend('新人寻访礼包', 128);
+                //this.AddMoney(128); 
+                break;
+            case 2:
+                this.AddStone(90);
+                this.AddJade(6000);
+                this.counter.Spend('周年组合包', 328);
+                //this.AddMoney(328); 
+                break;
+            case 3:
+                this.AddStone(6);
+                this.counter.Spend('月卡', 30);
+                //this.AddMoney(30); 
+                this.AddJade(6000);
+                break;
             default: throw new Error('不存在价格为 ' + money.toString() + ' 的组合包');
         }
 
@@ -237,218 +331,10 @@ class SJManager {
     private AddStone = (num: number): void => {
         SJManager.sStone += num;
     }
-    private AddMoney = (num: number): void => {
-        SJManager.costMoney += num;
-    }
     private AddJade = (num: number): void => {
         SJManager.compoundJade += num;
     }
 }
-/* 
-class FindAgent {
-    private rand = new Random();
-    private validDrawTimes: number;
-    private isActivity: boolean;
-    private sixActProbablity: number;
-    private fiveActProbablity: number;
-    private fourActProbablity: number;
-    private threeActProbablity: number;
-    private static standrdSixProb = 2;
-    private static standrdFiveProb = 8;
-    private static standrdFourProb = 50;
-    private static standrdThreeProb = 40;
-    private currSix: string[] = [];
-    private currFive: string[] = [];
-    private currFour: string[] = [];
-    private currThree: string[] = [];
-    private actSix: string[];
-    private actFive: string[];
-    private actFour: string[];
-    private actThree: string[];
-    private currAgentLevel = 3;
-    private currAgent: string = '';
-    private currAgentArray: string[] = [];
-    private lastIsTen = false;
-    private tenAgentLevel: number[] = [];
-    private minGuNum = 10;
-    private counter: Counter;
-    constructor(counter: Counter, isActivity: boolean = false,
-        sixActProb: number = 50, sixActAgentsArray: string[] = [],
-        fiveActProb = 50, fiveActAgentsArray: string[] = [],
-        fourActProb: number = 50, fourActAgentsArray: string[] = [],
-        threeActProb: number = 50, threeActAgentsArray: string[] = []) {
-        this.validDrawTimes = 0;
-        this.isActivity = isActivity;
-        this.counter = counter;
-
-        this.sixActProbablity = sixActProb;
-        this.fiveActProbablity = fiveActProb;
-        this.fourActProbablity = fourActProb;
-        this.threeActProbablity = threeActProb;
-        this.actSix = sixActAgentsArray;
-        this.actFive = fiveActAgentsArray;
-        this.actFour = fourActAgentsArray;
-        this.actThree = threeActAgentsArray;
-
-        six.forEach(e => {
-            if (!(e in sixActAgentsArray)) {
-                this.currSix.push(e);
-            }
-        });
-        five.forEach(e => {
-            if (!(e in fiveActAgentsArray)) {
-                this.currFive.push(e);
-            }
-        });
-        four.forEach(e => {
-            if (!(e in fourActAgentsArray)) {
-                this.currFour.push(e);
-            }
-        });
-        three.forEach(e => {
-            if (!(e in threeActAgentsArray)) {
-                this.currThree.push(e);
-            }
-        });
-
-    }
-
-    public DrawOnce = (): string => {
-
-        this.validDrawTimes++;
-        //let currAgent: string;
-        let prob = this.rand.Next(0, 100);
-        //console.log('prob = ' + prob);
-        //console.log('addsixprob = ' + this.AddSixProb());
-        let currSixProb = this.AddSixProb() % 100;
-        let currFiveProb = (this.AddSixProb() + FindAgent.standrdFiveProb) % 100;
-        let currFourProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb) % 100;
-        //let currThreeProb = (this.AddSixProb() + FindAgent.standrdFiveProb + FindAgent.standrdFourProb + FindAgent.standrdThreeProb) % 100;
-        if (this.minGuNum > 1) this.minGuNum--;
-        else if (this.minGuNum == 1) {
-            if (this.rand.Next(0, 3) == 3) currSixProb = 100;
-            else {
-                currSixProb = 0;
-                currFiveProb = 100;
-            }
-        }
-        this.lastIsTen = false;
-        if (prob <= currSixProb) {
-            this.minGuNum = 0;
-            //console.log('抽6');
-            this.currAgentLevel = 6;
-            this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next(0, 100) <= this.sixActProbablity && this.actSix.length != 0);
-            this.validDrawTimes = 0;
-            this.counter.AddSix(this.currAgent);
-            //console.log('当前抽到: ' + currAgent);
-            return this.currAgent;
-        }
-        else if (prob <= currFiveProb) {
-            this.minGuNum = 0;
-            //console.log('抽5');
-            this.currAgentLevel = 5;
-            this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next(0, 100) <= this.fiveActProbablity && this.actFive.length != 0);
-            //console.log('当前抽到: ' + currAgent);
-            this.counter.AddFive(this.currAgent);
-            return this.currAgent;
-        }
-        else if (prob <= currFourProb) {
-            this.currAgentLevel = 4;
-            //console.log('抽4');
-            this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next(0, 100) <= this.fourActProbablity && this.actFour.length != 0);
-            //console.log('当前抽到: ' + currAgent);
-            this.counter.AddFour(this.currAgent);
-            return this.currAgent;
-        }
-        else {
-            //console.log('抽3');
-            this.currAgentLevel = 3;
-            this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next(0, 100) <= this.threeActProbablity && this.actThree.length != 0);
-            //console.log('当前抽到: ' + currAgent);
-            this.counter.AddThree(this.currAgent);
-            return this.currAgent;
-        }
-
-        //throw new Error('无匹配');
-
-    }
-
-    public DrawTenth = (): string[] => {
-        //let currAgents: string[] = [];
-        this.tenAgentLevel.length = 0;
-        this.currAgentArray.length = 0;
-        for (let i = 0; i < 10; i++) {
-            this.currAgentArray.push(this.DrawOnce());
-            this.tenAgentLevel.push(this.currAgentLevel);
-        }
-        this.lastIsTen = true;
-        return this.currAgentArray;
-
-    }
-
-    private AddSixProb = (): number => {
-        let times = this.validDrawTimes;
-        let pro = 2;
-        while (times - 50 >= 0) {
-            pro += 2;
-            times -= 50;
-        }
-        return pro;
-    }
-
-    private GetAgent = (stars: number, isAct: boolean): string => {
-        let num;
-        let res;
-        let prob;
-        // console.log(this.currSix);
-        // console.log(this.currFive);
-        // console.log(this.currFour);
-        // console.log(this.currThree);
-        if (isAct) {
-            switch (stars) {
-                case 6: num = this.actSix.length; prob = this.rand.Next(0, num - 1); res = this.actSix[prob]; break;
-                case 5: num = this.actFive.length; prob = this.rand.Next(0, num - 1); res = this.actFive[prob]; break;
-                case 4: num = this.actFour.length; prob = this.rand.Next(0, num - 1); res = this.actFour[prob]; break;
-                case 3: num = this.actThree.length; prob = this.rand.Next(0, num - 1); res = this.actThree[prob]; break;
-                default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
-            }
-        }
-        else {
-            switch (stars) {
-                case 6: num = this.currSix.length; prob = this.rand.Next(0, num - 1); res = this.currSix[prob]; break;
-                case 5: num = this.currFive.length; prob = this.rand.Next(0, num - 1); res = this.currFive[prob]; break;
-                case 4: num = this.currFour.length; prob = this.rand.Next(0, num - 1); res = this.currFour[prob]; break;
-                case 3: num = this.currThree.length; prob = this.rand.Next(0, num - 1); res = this.currThree[prob]; break;
-                default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
-            }
-        }
-        return res;
-    }
-
-    public GetLastAgentLevel = (): number => {
-        return this.currAgentLevel;
-    }
-
-    public GetLastAgentsLevelArray = (): number[] => {
-        return this.tenAgentLevel;
-    }
-
-    public isLastTen = (): boolean => {
-        return this.lastIsTen;
-    }
-
-    public GetCurrAgent = (): string => {
-        return this.currAgent;
-    }
-
-    public GetCurrAgentArray = (): string[] => {
-        return this.currAgentArray;
-    }
-
-    public GetMinGuNum = (): number => {
-        return this.minGuNum;
-    }
-} */
 
 interface Agents {
     six: string[];
@@ -619,38 +505,13 @@ class HeadHunter {
 
 }
 
-
-
-
-
 var counter = new Counter();
 //var findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
 
 var headHunter = new HeadHunter(false, counter, act0, act0Prob);
-var sjManager = new SJManager();
+var sjManager = new SJManager(counter);
 
 class ViewControl {
-    /* public static SyncView = (findAg: FindAgent): void => {
-        $('#sstone').text(SJManager.sStone);
-        $('#jade').text(SJManager.compoundJade);
-        $('#tojade').text(SJManager.sStone * 180);
-        $('#jade').text(SJManager.compoundJade);
-        $('#sixnum').text(counter.GetSix().length);
-        $('#fivenum').text(counter.GetFive().length);
-        $('#fournum').text(counter.GetFour().length);
-        $('#threenum').text(counter.GetThree().length);
-
-
-        // $('#sixnum').text(findAg.GetSixTimes());
-        // $('#fivenum').text(findAg.GetFiveTimes());
-        // $('#fournum').text(findAg.GetFourTimes());
-        // $('#threenum').text(findAg.GetThreeTimes());
-        //let allTimes = findAg.GetSixTimes() + findAg.GetFiveTimes() + findAg.GetFourTimes() + findAg.GetThreeTimes();
-        $('#moneycost').text(counter.GetTimes() + ' / ' + SJManager.costMoney.toString());
-        if (findAg.GetMinGuNum() == 0) $('#tips').text('保底已出');
-        else $('#tips').text(findAg.GetMinGuNum() + '次内必定获得5星及以上干员');
-    } */
-
     public static ViewSync = (minFloor: number): void => {
         $('#sstone').text(SJManager.sStone);
         $('#jade').text(SJManager.compoundJade);
@@ -660,7 +521,7 @@ class ViewControl {
         $('#fivenum').text(counter.GetFive().length);
         $('#fournum').text(counter.GetFour().length);
         $('#threenum').text(counter.GetThree().length);
-        $('#moneycost').text(`${counter.GetTimes()} / ${SJManager.costMoney}`);
+        $('#moneycost').text(`${counter.GetTimes()} / ${counter.GetSpendingMoney()}`);
         if (minFloor == 0) {
             $('#tips').text('保底已出');
         }
@@ -668,23 +529,6 @@ class ViewControl {
             $('#tips').text(`${minFloor}次内必定获得5星及以上干员`);
         }
     }
-
-    /* public static ShowImg = (findAg: FindAgent): void => {
-        if (!findAg.isLastTen()) {
-            $('#image-box').html('<img id="img-agent0" src="./images/' + findAg.GetLastAgentLevel().toString() + '/' + findAg.GetCurrAgent() + '.jpg" class="agen-img">');
-        }
-        else {
-            let img0 = '<img id="img-agent0" src="./images/';
-            let imgs: string = '';
-            let LevelArray = findAg.GetLastAgentsLevelArray();
-            let agents = findAg.GetCurrAgentArray();
-            for (let i = 0; i < 10; i++) {
-                imgs += (img0 + LevelArray[i].toString() + '/' + agents[i].toString() + '.jpg" class="agen-img">');
-            }
-            $('#image-box').html(imgs);
-
-        }
-    } */
 
     public static ShowRes = (res: HuntRes | HuntRes[]): void => {
         let pic_box = $('#image-box');
@@ -748,7 +592,6 @@ function DrawOnce() {
             let result = confirm('是否要花费 ' + needSStone.toString() + ' 源石来兑换 ' + (needSStone * 180).toString() + ' 合成玉用来寻访？');
             if (result) {
                 sjManager.SStoneToJade(needSStone);
-                //ViewControl.SyncView(findAgent);
                 ViewControl.ViewSync(headHunter.GetMinFloor());
                 //alert('兑换成功');
 
@@ -762,8 +605,6 @@ function DrawOnce() {
         $('#resu').text(res.name);
         ViewControl.ViewSync(headHunter.GetMinFloor());
         ViewControl.ShowRes(res);
-        //ViewControl.SyncView(findAgent);
-        //ViewControl.ShowImg(findAgent);
     }
     catch (er) {
         alert(er.message);
@@ -785,7 +626,6 @@ function DrawTenth() {
             if (result) {
                 sjManager.SStoneToJade(needSStone);
                 ViewControl.ViewSync(headHunter.GetMinFloor());
-                // ViewControl.SyncView(findAgent);
                 //alert('兑换成功');
             }
             else return;
@@ -859,28 +699,10 @@ function ConvertStoneToJade() {
     }
 }
 
-// function RadioChange() {
-//     if (player[0].paused) {
-//         player[0].play();
-//     }
-//     if ($('#rad0').prop('checked')) {
-//         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
-//     }
-//     else if ($('#rad1').prop('checked')) {
-//         findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
-//     }
-// }
-
-/* function SetFindAgent() {
-    if ($('#selector').val() == '0') {
-        findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
-    }
-    else {
-        findAgent = new FindAgent(counter, true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
-    }
-} */
-
 function SetHunter() {
+    if (player[0].paused) {
+        player[0].play();
+    }
     if ($('#selector').val() == '0') {
         headHunter = new HeadHunter(true, counter, act0, act0Prob);
     }
@@ -889,40 +711,86 @@ function SetHunter() {
     }
 }
 
+interface MyEventData {
+    type: number;
+}
+
+interface MyEvent {
+    data: MyEventData;
+}
+
+interface ViewData {
+    [key: string]: number;
+}
+
+
+function ShowHis(type: MyEvent) {
+    if (player[0].paused) {
+        player[0].play();
+    }
+    let agent_str = '';
+    let agent_map: ViewData = {};
+    let agent_array: string[];
+    switch (type.data.type) {
+        case 6: agent_array = counter.GetSix(); break;
+        case 5: agent_array = counter.GetFive(); break;
+        case 4: agent_array = counter.GetFour(); break;
+        case 3: agent_array = counter.GetThree(); break;
+        default: alert('寻访不存在此种干员'); return;
+    }
+    if (agent_array.length == 0) {
+        alert(`没有抽到${type.data.type}星干员`);
+        return;
+    }
+
+    for (let i of agent_array) {
+        if (agent_map.hasOwnProperty(i)) {
+            agent_map[i] += 1;
+        }
+        else {
+            agent_map[i] = 1;
+        }
+    }
+    for (let i in agent_map) {
+        agent_str += `${i}: ${agent_map[i]}\n`;
+    }
+    alert(agent_str);
+}
+
+
 window.onload = function () {
     player = $('#bgm');
     $('#CSTJ').on('click', ConvertStoneToJade);
 
     $('#show-panel1').on('click', () => {
+        if (player[0].paused) {
+            player[0].play();
+        }
         $('#panel1').fadeIn();
     });
 
     $('#show-panel2').on('click', () => {
+        if (player[0].paused) {
+            player[0].play();
+        }
         $('#panel2').fadeIn();
     });
 
     $('#close-panel1').on('click', () => {
+        if (player[0].paused) {
+            player[0].play();
+        }
         $('#panel1').fadeOut();
     });
 
     $('#close-panel2').on('click', () => {
+        if (player[0].paused) {
+            player[0].play();
+        }
         $('#panel2').fadeOut();
     });
 
     $('#selector').on('change', SetHunter);
-
-
-    // if ($('#rad0')) {
-    //     $('#rad0').on('change', RadioChange);
-    //     let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
-    //     $('#act0').text(text);
-    // }
-    // if ($('#rad1')) {
-    //     $('#rad1').on('change', RadioChange);
-    //     let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
-    //     //let text = act1Title + '(' + sixActivity1.join('、') + '' + fiveActivity1.join('、') + ')';
-    //     $('#act1').text(text);
-    // }
 
     let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
     $('#opt0').text(text);
@@ -943,6 +811,26 @@ window.onload = function () {
     $('#buy-package3').on('click', () => { BuyPackage(30, 3); });
     $('#DO').on('click', DrawOnce);
     $('#DT').on('click', DrawTenth);
+
+    $('#sixnum').on('click', '', { type: 6 }, ShowHis);
+    $('#fivenum').on('click', '', { type: 5 }, ShowHis);
+    $('#fournum').on('click', '', { type: 4 }, ShowHis);
+    $('#threenum').on('click', '', { type: 3 }, ShowHis);
+    $('#moneycost').on('click', () => {
+        if (player[0].paused) {
+            player[0].play();
+        }
+        let cost_data: BuyData = counter.GetSpendingData();
+        let cost_str: string = '';
+        if (JSON.stringify(cost_data) == '{}') {
+            alert('您还没氪金呢');
+            return;
+        }
+        for (let i in cost_data) {
+            cost_str += `${i}: ${cost_data[i]}\n`;
+        }
+        alert(cost_str);
+    });
 }
 
 
