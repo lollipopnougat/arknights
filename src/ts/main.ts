@@ -8,7 +8,7 @@ const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', 
 
 const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 
-const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '周年组合包 (源石*90, 10连凭证*1)'];
+const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '周年组合包 (源石*90, 10连凭证*1)', '月卡 (6源石+每天200合成玉)'];
 
 const sstoneNum = [1, 7, 24, 50, 90, 185]; // 源石礼包中的源石数
 
@@ -16,33 +16,56 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
-const act0AgentLevel = {
-    '6': 2,
-    '5': 3,
-    '4': 0,
-    '3': 0
-};
-
-const act1AgentLevel = {
-    '6': 1,
-    '5': 2,
-    '4': 1,
-    '3': 0
-};
 
 const act0Title = '常驻标准寻访';
 
 const act1Title = '君影轻灵'; // 活动卡池
 
-const sixActivity0: string[] = ['莫斯提马', '夜莺']; 
+const sixActivity0: string[] = ['莫斯提马', '夜莺'];
 
 const fiveActivity0: string[] = ['星极', '初雪', '芙兰卡'];
+
+const fourActivity0: string[] = [];
+
+const threeActivity0: string[] = [];
 
 const sixActivity1: string[] = ['铃兰'];
 
 const fiveActivity1: string[] = ['断崖'];
 
 const fourActivity1: string[] = ['卡达'];
+
+const threeActivity1: string[] = [];
+
+
+const act0: Agents = {
+    six: sixActivity0,
+    five: fiveActivity0,
+    four: fourActivity0,
+    three: threeActivity0
+};
+
+const act0Prob: HuntProb = {
+    six: 50,
+    five: 50,
+    four: 0,
+    three: 0
+}
+
+const act1: Agents = {
+    six: sixActivity1,
+    five: fiveActivity1,
+    four: fourActivity1,
+    three: threeActivity1
+};
+
+const act1Prob: HuntProb = {
+    six: 50,
+    five: 50,
+    four: 20,
+    three: 0
+}
+
 
 
 var player: JQuery<HTMLAudioElement>;
@@ -72,6 +95,63 @@ class Random {
 
 }
 
+class Counter {
+    private FindTimes: number;
+    private FindSix: string[];
+    private FindFive: string[];
+    private FindFour: string[];
+    private FindThree: string[];
+    public constructor() {
+        this.FindTimes = 0;
+        this.FindSix = [];
+        this.FindFive = [];
+        this.FindFour = [];
+        this.FindThree = [];
+    }
+
+    public AddSix = (val: string) => {
+        this.FindTimes++;
+        this.FindSix.push(val);
+    }
+
+    public AddFive = (val: string) => {
+        this.FindTimes++;
+        this.FindFive.push(val);
+    }
+
+    public AddFour = (val: string) => {
+        this.FindTimes++;
+        this.FindFour.push(val);
+    }
+
+    public AddThree = (val: string) => {
+        this.FindTimes++;
+        this.FindThree.push(val);
+    }
+
+    public GetTimes = (): number => {
+        return this.FindTimes;
+    }
+
+    public GetSix = (): string[] => {
+        return this.FindSix;
+    }
+
+    public GetFive = (): string[] => {
+        return this.FindFive;
+    }
+
+    public GetFour = (): string[] => {
+        return this.FindFour;
+    }
+
+    public GetThree = (): string[] => {
+        return this.FindThree;
+    }
+
+}
+
+
 class SJManager {
     public static compoundJade = 12000;
     public static sStone = 56;
@@ -87,7 +167,7 @@ class SJManager {
 
     }
 
-    public isFirstBuy = (type: number): boolean => {
+    public IsFirstBuy = (type: number): boolean => {
         switch (type) {
             case 0: return this.isFirstBuySStone0;
             case 1: return this.isFirstBuySStone1;
@@ -148,6 +228,7 @@ class SJManager {
             case 0: this.AddStone(42); this.AddJade(6000); this.AddMoney(168); break;
             case 1: this.AddJade(12000); this.AddMoney(128); break;
             case 2: this.AddStone(90); this.AddJade(6000); this.AddMoney(328); break;
+            case 3: this.AddStone(6); this.AddMoney(30); this.AddJade(6000); break;
             default: throw new Error('不存在价格为 ' + money.toString() + ' 的组合包');
         }
 
@@ -163,7 +244,7 @@ class SJManager {
         SJManager.compoundJade += num;
     }
 }
-
+/* 
 class FindAgent {
     private rand = new Random();
     private validDrawTimes: number;
@@ -184,24 +265,21 @@ class FindAgent {
     private actFive: string[];
     private actFour: string[];
     private actThree: string[];
-    private sixTimes = 0;
-    private fiveTimes = 0;
-    private fourTimes = 0;
-    private threeTimes = 0;
     private currAgentLevel = 3;
     private currAgent: string = '';
     private currAgentArray: string[] = [];
     private lastIsTen = false;
     private tenAgentLevel: number[] = [];
     private minGuNum = 10;
-    constructor(isActivity: boolean = false,
+    private counter: Counter;
+    constructor(counter: Counter, isActivity: boolean = false,
         sixActProb: number = 50, sixActAgentsArray: string[] = [],
         fiveActProb = 50, fiveActAgentsArray: string[] = [],
         fourActProb: number = 50, fourActAgentsArray: string[] = [],
-        threeActProb: number = 50, threeActAgentsArray: string[] = [],) {
+        threeActProb: number = 50, threeActAgentsArray: string[] = []) {
         this.validDrawTimes = 0;
         this.isActivity = isActivity;
-
+        this.counter = counter;
 
         this.sixActProbablity = sixActProb;
         this.fiveActProbablity = fiveActProb;
@@ -259,35 +337,35 @@ class FindAgent {
             this.minGuNum = 0;
             //console.log('抽6');
             this.currAgentLevel = 6;
-            this.sixTimes++;
             this.currAgent = this.GetAgent(6, this.isActivity && this.rand.Next(0, 100) <= this.sixActProbablity && this.actSix.length != 0);
             this.validDrawTimes = 0;
+            this.counter.AddSix(this.currAgent);
             //console.log('当前抽到: ' + currAgent);
-            return this.currAgent
+            return this.currAgent;
         }
         else if (prob <= currFiveProb) {
             this.minGuNum = 0;
             //console.log('抽5');
             this.currAgentLevel = 5;
-            this.fiveTimes++;
             this.currAgent = this.GetAgent(5, this.isActivity && this.rand.Next(0, 100) <= this.fiveActProbablity && this.actFive.length != 0);
             //console.log('当前抽到: ' + currAgent);
+            this.counter.AddFive(this.currAgent);
             return this.currAgent;
         }
         else if (prob <= currFourProb) {
             this.currAgentLevel = 4;
-            this.fourTimes++;
             //console.log('抽4');
             this.currAgent = this.GetAgent(4, this.isActivity && this.rand.Next(0, 100) <= this.fourActProbablity && this.actFour.length != 0);
             //console.log('当前抽到: ' + currAgent);
+            this.counter.AddFour(this.currAgent);
             return this.currAgent;
         }
         else {
             //console.log('抽3');
             this.currAgentLevel = 3;
-            this.threeTimes++;
             this.currAgent = this.GetAgent(3, this.isActivity && this.rand.Next(0, 100) <= this.threeActProbablity && this.actThree.length != 0);
             //console.log('当前抽到: ' + currAgent);
+            this.counter.AddThree(this.currAgent);
             return this.currAgent;
         }
 
@@ -347,22 +425,6 @@ class FindAgent {
         return res;
     }
 
-    public GetSixTimes = (): number => {
-        return this.sixTimes;
-    }
-
-    public GetFiveTimes = (): number => {
-        return this.fiveTimes;
-    }
-
-    public GetFourTimes = (): number => {
-        return this.fourTimes;
-    }
-
-    public GetThreeTimes = (): number => {
-        return this.threeTimes;
-    }
-
     public GetLastAgentLevel = (): number => {
         return this.currAgentLevel;
     }
@@ -386,28 +448,228 @@ class FindAgent {
     public GetMinGuNum = (): number => {
         return this.minGuNum;
     }
+} */
+
+interface Agents {
+    six: string[];
+    five: string[];
+    four: string[];
+    three: string[];
 }
 
-var findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+interface HuntProb {
+    six: number;
+    five: number;
+    four: number;
+    three: number;
+}
+
+interface HuntRes {
+    star: number;
+    name: string;
+}
+
+class HeadHunter {
+    private activityAgents: Agents;
+    private normalAgents: Agents;
+    private huntProb: HuntProb;
+    private validSixTimes: number;
+    private rand: Random;
+    private minFloor = 10;
+    private isActivity: boolean;
+    private counter: Counter;
+    constructor(isAct: boolean, count: Counter, actAgent: Agents, huntProb: HuntProb) {
+        this.normalAgents = {
+            six: six,
+            five: five,
+            four: four,
+            three: three
+        };
+        this.activityAgents = actAgent;
+        this.huntProb = huntProb;
+        this.validSixTimes = 0;
+        this.rand = new Random();
+        this.isActivity = isAct;
+        this.counter = count;
+    }
+
+    private AddSixProb = (): number => {
+        let times = this.validSixTimes;
+        let pro = 2;
+        while (times - 50 >= 0) {
+            pro += 2;
+            times -= 50;
+        }
+        return pro;
+    }
+
+    private GetAgent = (stars: number, isAct: boolean): string => {
+        let num;
+        let res;
+        let prob;
+        // console.log(this.currSix);
+        // console.log(this.currFive);
+        // console.log(this.currFour);
+        // console.log(this.currThree);
+        if (isAct) {
+            switch (stars) {
+                case 6: num = this.activityAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.activityAgents.six[prob]; break;
+                case 5: num = this.activityAgents.five.length; prob = this.rand.Next(0, num - 1); res = this.activityAgents.five[prob]; break;
+                case 4: num = this.activityAgents.four.length; prob = this.rand.Next(0, num - 1); res = this.activityAgents.four[prob]; break;
+                case 3: num = this.activityAgents.three.length; prob = this.rand.Next(0, num - 1); res = this.activityAgents.three[prob]; break;
+                default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
+            }
+        }
+        else {
+            switch (stars) {
+                case 6: num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
+                case 5: num = this.normalAgents.five.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.five[prob]; break;
+                case 4: num = this.normalAgents.four.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.four[prob]; break;
+                case 3: num = this.normalAgents.three.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.three[prob]; break;
+                default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
+            }
+        }
+        return res;
+    }
+
+    public HuntOnce = (): HuntRes => {
+        this.validSixTimes++;
+
+        let prob = this.rand.Next(0, 100);
+
+        let currSixProb = this.AddSixProb() % 100;
+        let currFiveProb = (this.AddSixProb() + 8) % 100;
+        let currFourProb = (this.AddSixProb() + 8 + 50) % 100;
+
+        if (this.minFloor > 1) this.minFloor--;
+        else if (this.minFloor == 1) {
+            if (this.rand.Next(0, 3) == 3) currSixProb = 100;
+            else {
+                currSixProb = 0;
+                currFiveProb = 100;
+            }
+        }
+        let res: HuntRes;
+
+        if (prob <= currSixProb) {
+            this.minFloor = 0;
+            //console.log('抽6');
+            let res_name = this.GetAgent(6, this.isActivity && this.rand.Next(0, 100) <= this.huntProb.six && this.activityAgents.six.length != 0);
+            this.validSixTimes = 0;
+            this.counter.AddSix(res_name);
+            res = {
+                star: 6,
+                name: res_name
+            };
+            //console.log('当前抽到: ' + currAgent);
+            return res;
+        }
+        else if (prob <= currFiveProb) {
+            this.minFloor = 0;
+            //console.log('抽5');
+            let res_name = this.GetAgent(5, this.isActivity && this.rand.Next(0, 100) <= this.huntProb.five && this.activityAgents.five.length != 0);
+            this.counter.AddFive(res_name);
+            res = {
+                star: 5,
+                name: res_name
+            };
+            //console.log('当前抽到: ' + currAgent);
+            return res;
+        }
+        else if (prob <= currFourProb) {
+            //console.log('抽4');
+            let res_name = this.GetAgent(4, this.isActivity && this.rand.Next(0, 100) <= this.huntProb.four && this.activityAgents.four.length != 0);
+            this.counter.AddFour(res_name);
+            res = {
+                star: 4,
+                name: res_name
+            };
+            //console.log('当前抽到: ' + currAgent);
+            return res;
+        }
+        else {
+            //console.log('抽3');
+            let res_name = this.GetAgent(3, this.isActivity && this.rand.Next(0, 100) <= this.huntProb.three && this.activityAgents.three.length != 0);
+            this.counter.AddThree(res_name);
+            res = {
+                star: 3,
+                name: res_name
+            };
+            //console.log('当前抽到: ' + currAgent);
+            return res;
+        }
+    }
+
+    public DrawTenth = (): HuntRes[] => {
+        let resArray: HuntRes[] = [];
+        for (let i = 0; i < 10; i++) {
+            resArray.push(this.HuntOnce());
+        }
+        return resArray;
+    }
+
+    public GetValidSixTimes = (): number => {
+        return this.validSixTimes;
+    }
+
+    public GetMinFloor = (): number => {
+        return this.minFloor;
+    }
+
+
+}
+
+
+
+
+
+var counter = new Counter();
+//var findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
+
+var headHunter = new HeadHunter(false, counter, act0, act0Prob);
 var sjManager = new SJManager();
 
 class ViewControl {
-    public static SyncView = (findAg: FindAgent): void => {
+    /* public static SyncView = (findAg: FindAgent): void => {
         $('#sstone').text(SJManager.sStone);
         $('#jade').text(SJManager.compoundJade);
         $('#tojade').text(SJManager.sStone * 180);
         $('#jade').text(SJManager.compoundJade);
-        $('#sixnum').text(findAg.GetSixTimes());
-        $('#fivenum').text(findAg.GetFiveTimes());
-        $('#fournum').text(findAg.GetFourTimes());
-        $('#threenum').text(findAg.GetThreeTimes());
-        let allTimes = findAg.GetSixTimes() + findAg.GetFiveTimes() + findAg.GetFourTimes() + findAg.GetThreeTimes();
-        $('#moneycost').text(allTimes.toString() + ' / ' + SJManager.costMoney.toString());
+        $('#sixnum').text(counter.GetSix().length);
+        $('#fivenum').text(counter.GetFive().length);
+        $('#fournum').text(counter.GetFour().length);
+        $('#threenum').text(counter.GetThree().length);
+
+
+        // $('#sixnum').text(findAg.GetSixTimes());
+        // $('#fivenum').text(findAg.GetFiveTimes());
+        // $('#fournum').text(findAg.GetFourTimes());
+        // $('#threenum').text(findAg.GetThreeTimes());
+        //let allTimes = findAg.GetSixTimes() + findAg.GetFiveTimes() + findAg.GetFourTimes() + findAg.GetThreeTimes();
+        $('#moneycost').text(counter.GetTimes() + ' / ' + SJManager.costMoney.toString());
         if (findAg.GetMinGuNum() == 0) $('#tips').text('保底已出');
         else $('#tips').text(findAg.GetMinGuNum() + '次内必定获得5星及以上干员');
+    } */
+
+    public static ViewSync = (minFloor: number): void => {
+        $('#sstone').text(SJManager.sStone);
+        $('#jade').text(SJManager.compoundJade);
+        $('#tojade').text(SJManager.sStone * 180);
+        $('#jade').text(SJManager.compoundJade);
+        $('#sixnum').text(counter.GetSix().length);
+        $('#fivenum').text(counter.GetFive().length);
+        $('#fournum').text(counter.GetFour().length);
+        $('#threenum').text(counter.GetThree().length);
+        $('#moneycost').text(`${counter.GetTimes()} / ${SJManager.costMoney}`);
+        if (minFloor == 0) {
+            $('#tips').text('保底已出');
+        }
+        else {
+            $('#tips').text(`${minFloor}次内必定获得5星及以上干员`);
+        }
     }
 
-    public static ShowImg = (findAg: FindAgent): void => {
+    /* public static ShowImg = (findAg: FindAgent): void => {
         if (!findAg.isLastTen()) {
             $('#image-box').html('<img id="img-agent0" src="./images/' + findAg.GetLastAgentLevel().toString() + '/' + findAg.GetCurrAgent() + '.jpg" class="agen-img">');
         }
@@ -420,9 +682,30 @@ class ViewControl {
                 imgs += (img0 + LevelArray[i].toString() + '/' + agents[i].toString() + '.jpg" class="agen-img">');
             }
             $('#image-box').html(imgs);
-            if ($('#bgm')) {
-                $('')
+
+        }
+    } */
+
+    public static ShowRes = (res: HuntRes | HuntRes[]): void => {
+        let pic_box = $('#image-box');
+        pic_box.empty();
+        if (res instanceof Array) {
+            for (let i in res) {
+                let pic_tmp = $('<img>', {
+                    id: `img-agent${i}`,
+                    src: `./images/${res[i].star}/${res[i].name}.jpg`,
+                    class: 'agen-img'
+                });
+                pic_box.append(pic_tmp);
             }
+        }
+        else {
+            let pic_tmp = $('<img>', {
+                id: `img-agent0`,
+                src: `./images/${res.star}/${res.name}.jpg`,
+                class: 'agen-img'
+            });
+            $('#image-box').append(pic_tmp);
         }
     }
 
@@ -453,8 +736,6 @@ class ViewControl {
 
 }
 
-
-
 function DrawOnce() {
     if (player[0].paused) {
         player[0].play();
@@ -467,7 +748,8 @@ function DrawOnce() {
             let result = confirm('是否要花费 ' + needSStone.toString() + ' 源石来兑换 ' + (needSStone * 180).toString() + ' 合成玉用来寻访？');
             if (result) {
                 sjManager.SStoneToJade(needSStone);
-                ViewControl.SyncView(findAgent);
+                //ViewControl.SyncView(findAgent);
+                ViewControl.ViewSync(headHunter.GetMinFloor());
                 //alert('兑换成功');
 
             }
@@ -475,10 +757,13 @@ function DrawOnce() {
         }
         //console.log('点击了寻访一次');
         SJManager.compoundJade -= 600;
-        let currAgent = findAgent.DrawOnce();
-        $('#resu').text(currAgent);
-        ViewControl.SyncView(findAgent);
-        ViewControl.ShowImg(findAgent);
+
+        let res = headHunter.HuntOnce();
+        $('#resu').text(res.name);
+        ViewControl.ViewSync(headHunter.GetMinFloor());
+        ViewControl.ShowRes(res);
+        //ViewControl.SyncView(findAgent);
+        //ViewControl.ShowImg(findAgent);
     }
     catch (er) {
         alert(er.message);
@@ -499,17 +784,22 @@ function DrawTenth() {
             let result = confirm('是否要花费 ' + needSStone.toString() + ' 源石来兑换 ' + (needSStone * 180).toString() + ' 合成玉用来寻访？');
             if (result) {
                 sjManager.SStoneToJade(needSStone);
-                ViewControl.SyncView(findAgent);
+                ViewControl.ViewSync(headHunter.GetMinFloor());
+                // ViewControl.SyncView(findAgent);
                 //alert('兑换成功');
             }
             else return;
         }
         //console.log('点击了寻访10次');
         SJManager.compoundJade -= 6000;
-        let currAgent = findAgent.DrawTenth();
-        $('#resu').text(currAgent.toString());
-        ViewControl.SyncView(findAgent);
-        ViewControl.ShowImg(findAgent);
+        let res = headHunter.DrawTenth();
+        let res_str: string = '';
+        for (let i of res) {
+            res_str += `${i.name} `;
+        }
+        $('#resu').text(res_str);
+        ViewControl.ViewSync(headHunter.GetMinFloor());
+        ViewControl.ShowRes(res);
     }
     catch (er) {
         alert(er.message);
@@ -523,13 +813,13 @@ function BuySStone(type: number) {
     }
     try {
         let num;
-        if (sjManager.isFirstBuy(type)) num = sstoneFEx[type];
+        if (sjManager.IsFirstBuy(type)) num = sstoneFEx[type];
         else num = sstoneNum[type];
         let result = confirm('是否要花费 ' + sstoneMoney[type].toString() + ' 元来购买' + num.toString() + ' 源石？');
         if (!result) return;
-        if (sjManager.isFirstBuy(type)) ViewControl.CloseFirstEx(type);
+        if (sjManager.IsFirstBuy(type)) ViewControl.CloseFirstEx(type);
         sjManager.BuySStone(type);
-        ViewControl.SyncView(findAgent);
+        ViewControl.ViewSync(headHunter.GetMinFloor());
 
     } catch (er) {
         alert(er.message);
@@ -546,7 +836,7 @@ function BuyPackage(money: number, type: number) {
         if (!result) return;
         sjManager.BuyPackage(money, type);
         ViewControl.ClosePackage(type);
-        ViewControl.SyncView(findAgent);
+        ViewControl.ViewSync(headHunter.GetMinFloor());
     } catch (er) {
         alert(er.message);
     }
@@ -562,46 +852,95 @@ function ConvertStoneToJade() {
         let result = confirm('是否要花费 ' + num.toString() + ' 源石来兑换' + (num * 180).toString() + ' 合成玉？');
         if (!result) return;
         sjManager.SStoneToJade(num);
-        ViewControl.SyncView(findAgent);
+        ViewControl.ViewSync(headHunter.GetMinFloor());
     }
     catch (er) {
         alert(er.message);
     }
 }
 
-function RadioChange() {
-    if (player[0].paused) {
-        player[0].play();
+// function RadioChange() {
+//     if (player[0].paused) {
+//         player[0].play();
+//     }
+//     if ($('#rad0').prop('checked')) {
+//         findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+//     }
+//     else if ($('#rad1').prop('checked')) {
+//         findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
+//     }
+// }
+
+/* function SetFindAgent() {
+    if ($('#selector').val() == '0') {
+        findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
     }
-    if ($('#rad0').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity0, 50, fiveActivity0);
+    else {
+        findAgent = new FindAgent(counter, true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
     }
-    else if ($('#rad1').prop('checked')) {
-        findAgent = new FindAgent(true, 50, sixActivity1, 50, fiveActivity1, 20, fourActivity1);
+} */
+
+function SetHunter() {
+    if ($('#selector').val() == '0') {
+        headHunter = new HeadHunter(true, counter, act0, act0Prob);
+    }
+    else {
+        headHunter = new HeadHunter(true, counter, act1, act1Prob);
     }
 }
 
 window.onload = function () {
     player = $('#bgm');
     $('#CSTJ').on('click', ConvertStoneToJade);
-    if ($('#rad0')) {
-        $('#rad0').on('change', RadioChange);
-        let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
-        $('#act0').text(text);
-    }
-    if ($('#rad1')) {
-        $('#rad1').on('change', RadioChange);
-        let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
-        //let text = act1Title + '(' + sixActivity1.join('、') + '' + fiveActivity1.join('、') + ')';
-        $('#act1').text(text);
-    }
+
+    $('#show-panel1').on('click', () => {
+        $('#panel1').fadeIn();
+    });
+
+    $('#show-panel2').on('click', () => {
+        $('#panel2').fadeIn();
+    });
+
+    $('#close-panel1').on('click', () => {
+        $('#panel1').fadeOut();
+    });
+
+    $('#close-panel2').on('click', () => {
+        $('#panel2').fadeOut();
+    });
+
+    $('#selector').on('change', SetHunter);
+
+
+    // if ($('#rad0')) {
+    //     $('#rad0').on('change', RadioChange);
+    //     let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
+    //     $('#act0').text(text);
+    // }
+    // if ($('#rad1')) {
+    //     $('#rad1').on('change', RadioChange);
+    //     let text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+    //     //let text = act1Title + '(' + sixActivity1.join('、') + '' + fiveActivity1.join('、') + ')';
+    //     $('#act1').text(text);
+    // }
+
+    let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
+    $('#opt0').text(text);
+
+
+    text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+    //let text = act1Title + '(' + sixActivity1.join('') + '、' + fiveActivity1.join('、') + ')';
+    $('#opt1').text(text);
+
+
     for (let i = 0; i < 6; i++) {
-        $(`#buy-sstone${i}`).on('click', function () { BuySStone(i); });
+        $(`#buy-sstone${i}`).on('click', () => { BuySStone(i); });
     }
 
-    $('#buy-package0').on('click', function () { BuyPackage(168, 0); });
-    $('#buy-package1').on('click', function () { BuyPackage(128, 1); });
-    $('#buy-package2').on('click', function () { BuyPackage(328, 2); });
+    $('#buy-package0').on('click', () => { BuyPackage(168, 0); });
+    $('#buy-package1').on('click', () => { BuyPackage(128, 1); });
+    $('#buy-package2').on('click', () => { BuyPackage(328, 2); });
+    $('#buy-package3').on('click', () => { BuyPackage(30, 3); });
     $('#DO').on('click', DrawOnce);
     $('#DT').on('click', DrawTenth);
 }

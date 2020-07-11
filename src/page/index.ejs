@@ -39,15 +39,24 @@
         <span class="btn-top-text-btn" id="CSTJ">+</span>
     </div>
     <div class="radio-btn">
-        <span class="rad-text">选择卡池</span><button onclick="location.reload()">重置</button><br>
+        <!-- <span class="rad-text">选择卡池</span><button onclick="location.reload()">重置</button><br>
         <input type="radio" id="rad1" name="select-type" />
         <span class="radio-text" id="act1">寻访1</span><br>
         <input type="radio" id="rad0" checked name="select-type"  />
-        <span class="radio-text" id="act0">寻访0</span>
-
+        <span class="radio-text" id="act0">寻访0</span> -->
+        <div class="select">
+            <select id="selector">
+                <option value="0" id="opt0">寻访1</option>
+                <option value="1" id="opt1">寻访2</option>
+            </select>
+        </div>
     </div>
     <div class="tips">
         <p class="min-gu" id="tips">10次内必定获得5星及以上干员</p>
+    </div>
+    <div class="viewbox">
+        <button class="buy-btn" id="show-panel1">模拟原石交易所</button>
+        <button class="buy-btn" id="show-panel2">模拟组合包商店</button>
     </div>
     <div class="viewbox">
         <div class="btn-top center">
@@ -68,23 +77,29 @@
 
         <p id="resu" class="result-area"></p>
     </div>
-    <div class="sstone-buy">
-        <h2 class="sstone-buy-head">源石交易所</h2>
-        <p class="sstone-text">请放心，这些只是模拟氪金，不需要真的付款</p>
-        <button id="buy-sstone0">氪金6元买1送2</button>
-        <button id="buy-sstone1">氪金30元买6送6</button>
-        <button id="buy-sstone2">氪金98元买20送20</button><br>
-        <button id="buy-sstone3">氪金198元买40送40</button>
-        <button id="buy-sstone4">氪金328元买66送66</button>
-        <button id="buy-sstone5">氪金648元130送130</button>
+    <div class="float-block" id="panel1">
+        <div class="sstone-buy">
+            <h2 class="sstone-buy-head">源石交易所</h2>
+            <p class="sstone-text">请放心，这些只是模拟氪金，不需要真的付款</p>
+            <button id="buy-sstone0">氪金6元买1送2</button><br>
+            <button id="buy-sstone1">氪金30元买6送6</button><br>
+            <button id="buy-sstone2">氪金98元买20送20</button><br>
+            <button id="buy-sstone3">氪金198元买40送40</button><br>
+            <button id="buy-sstone4">氪金328元买66送66</button><br>
+            <button id="buy-sstone5">氪金648元130送130</button>
+        </div>
+        <button class="close-btn" id="close-panel1">关闭</button>
     </div>
-    <div class="package-buy">
-        <h2 class="package-buy-head">组合包</h2>
-        <button id="buy-package0">氪金168元每月寻访</button>
-        <button id="buy-package1">氪金128元新人寻访</button>
-        <button id="buy-package2">氪金328元周年组合</button>
+    <div class="float-block" id="panel2">
+        <div class="package-buy">
+            <h2 class="package-buy-head">组合包</h2>
+            <button id="buy-package3">氪金30元月卡</button><br>
+            <button id="buy-package0">氪金168元每月寻访</button><br>
+            <button id="buy-package1">氪金128元新人寻访</button><br>
+            <button id="buy-package2">氪金328元周年组合</button><br>
+        </div>
+        <button class="close-btn" id="close-panel2">关闭</button>
     </div>
-
     <div class="showbox">
         <h2>数据统计</h2>
         <div class="six-box">
