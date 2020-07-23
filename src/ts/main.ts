@@ -21,9 +21,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '君影轻灵'; // 活动卡池
 
-const sixActivity0: string[] = ['莫斯提马', '夜莺'];
+const sixActivity0: string[] = ['风笛', '安洁莉娜'];
 
-const fiveActivity0: string[] = ['星极', '初雪', '芙兰卡'];
+const fiveActivity0: string[] = ['槐琥', '临光', '慑砂'];
 
 const fourActivity0: string[] = [];
 
@@ -508,7 +508,7 @@ class HeadHunter {
 var counter = new Counter();
 //var findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
 
-var headHunter = new HeadHunter(false, counter, act0, act0Prob);
+var headHunter = new HeadHunter(true, counter, act0, act0Prob);
 var sjManager = new SJManager(counter);
 
 class ViewControl {
