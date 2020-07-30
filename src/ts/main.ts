@@ -46,7 +46,7 @@ const act0: Agents = {
 };
 
 const act0Prob: HuntProb = {
-    six: 0,
+    six: 50,
     five: 50,
     four: 0,
     three: 0
@@ -60,9 +60,9 @@ const act1: Agents = {
 };
 
 const act1Prob: HuntProb = {
-    six: 50,
+    six: 0,
     five: 50,
-    four: 20,
+    four: 0,
     three: 0
 }
 
