@@ -19,7 +19,7 @@ const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '君影轻灵'; // 活动卡池
+const act1Title = '流沙漩涡'; // 活动卡池
 
 const sixActivity0: string[] = ['风笛', '安洁莉娜'];
 
@@ -29,11 +29,11 @@ const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['铃兰'];
+const sixActivity1: string[] = [''];
 
-const fiveActivity1: string[] = ['断崖'];
+const fiveActivity1: string[] = ['蜜蜡', '贾维'];
 
-const fourActivity1: string[] = ['卡达'];
+const fourActivity1: string[] = [];
 
 const threeActivity1: string[] = [];
 
@@ -46,7 +46,7 @@ const act0: Agents = {
 };
 
 const act0Prob: HuntProb = {
-    six: 50,
+    six: 0,
     five: 50,
     four: 0,
     three: 0
@@ -791,12 +791,40 @@ window.onload = function () {
     });
 
     $('#selector').on('change', SetHunter);
-
-    let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
+    let text = act0Title + '(';
+    if (sixActivity0.length != 0) {
+        text += sixActivity0.join(' ') + ' ';
+    }
+    if (fiveActivity0.length != 0) {
+        text += fiveActivity0.join(' ') + ' ';
+    }
+    if (fourActivity0.length != 0) {
+        text += fourActivity0.join(' ') + ' ';
+    }
+    if (threeActivity0.length != 0) {
+        text += threeActivity0.join(' ') + ' ';
+    }
+    text += ')';
+    //let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
+    //let text = act0Title + '('  + fiveActivity0.join('、') + ')';
     $('#opt0').text(text);
 
 
-    text = act1Title + '(' + sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+    text = act1Title + '(';
+    if (sixActivity1.length != 0) {
+        text += sixActivity1.join(' ') + ' ';
+    }
+    if (fiveActivity1.length != 0) {
+        text += fiveActivity1.join(' ') + ' ';
+    }
+    if (fourActivity1.length != 0) {
+        text += fourActivity1.join(' ') + ' ';
+    }
+    if (threeActivity1.length != 0) {
+        text += threeActivity1.join(' ') + ' ';
+    }
+    text += ')';
+    //text += sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
     //let text = act1Title + '(' + sixActivity1.join('') + '、' + fiveActivity1.join('、') + ')';
     $('#opt1').text(text);
 
