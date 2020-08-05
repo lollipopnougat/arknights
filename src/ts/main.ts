@@ -21,9 +21,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '流沙漩涡'; // 活动卡池
 
-const sixActivity0: string[] = ['风笛', '安洁莉娜'];
+const sixActivity0: string[] = ['斯卡蒂', '黑'];
 
-const fiveActivity0: string[] = ['槐琥', '临光', '慑砂'];
+const fiveActivity0: string[] = ['苇草', '白金', '天火'];
 
 const fourActivity0: string[] = [];
 
