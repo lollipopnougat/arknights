@@ -19,7 +19,7 @@ const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '不羁逆流'; // 活动卡池
+const act1Title = '密林悍将'; // 活动卡池
 
 const sixActivity0: string[] = ['银灰', '刻俄柏'];
 
@@ -29,11 +29,11 @@ const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['棘刺'];
+const sixActivity1: string[] = ['森蚺'];
 
-const fiveActivity1: string[] = ['安哲拉'];
+const fiveActivity1: string[] = ['燧石'];
 
-const fourActivity1: string[] = ['孑'];
+const fourActivity1: string[] = ['酸糖'];
 
 const threeActivity1: string[] = [];
 
