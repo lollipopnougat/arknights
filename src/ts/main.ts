@@ -21,9 +21,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '密林悍将'; // 活动卡池
 
-const sixActivity0: string[] = ['银灰', '刻俄柏'];
+const sixActivity0: string[] = ['闪灵', '煌'];
 
-const fiveActivity0: string[] = ['可颂', '空', '巫恋'];
+const fiveActivity0: string[] = ['赫默', '幽灵鲨', '崖心'];
 
 const fourActivity0: string[] = [];
 
