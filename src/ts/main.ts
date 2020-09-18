@@ -21,9 +21,9 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '不羁逆流(返场)'; // 活动卡池
 
-const sixActivity0: string[] = ['闪灵', '煌'];
+const sixActivity0: string[] = ['赫拉格', '伊芙利特'];
 
-const fiveActivity0: string[] = ['赫默', '幽灵鲨', '崖心'];
+const fiveActivity0: string[] = ['凛冬', '惊蛰', '雷蛇'];
 
 const fourActivity0: string[] = [];
 
