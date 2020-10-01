@@ -1,10 +1,10 @@
 import "../css/style.css";
 var $ = require('jquery');
-const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺'];
+const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔'];
 
-const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石'];
+const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月'];
 
-const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖'];
+const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀'];
 
 const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 
@@ -16,14 +16,17 @@ const sstoneMoney = [6, 30, 98, 198, 328, 648]; // 源石礼包价格
 
 const sstoneFEx = [3, 12, 40, 80, 132, 260]; // 首充源石礼包送的源石
 
+const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
 const act1Title = '无拘熔火'; // 活动卡池
 
-const sixActivity0: string[] = ['赫拉格', '伊芙利特'];
+const act2Title = '搅动潮汐之剑';
 
-const fiveActivity0: string[] = ['凛冬', '惊蛰', '雷蛇'];
+const sixActivity0: string[] = ['塞雷娅', '温蒂'];
+
+const fiveActivity0: string[] = ['食铁兽', '拉普兰德', '送葬人'];
 
 const fourActivity0: string[] = [];
 
@@ -36,6 +39,14 @@ const fiveActivity1: string[] = ['四月', '极境'];
 const fourActivity1: string[] = ['芳汀'];
 
 const threeActivity1: string[] = [];
+
+const sixActivity2: string[] = ['斯卡蒂'];
+
+const fiveActivity2: string[] = ['临光', '夜魔'];
+
+const fourActivity2: string[] = ['暗索', '猎蜂'];
+
+const threeActivity2: string[] = [];
 
 
 const act0: Agents = {
@@ -59,6 +70,13 @@ const act1: Agents = {
     three: threeActivity1
 };
 
+const act2: Agents = {
+    six: sixActivity2,
+    five: fiveActivity2,
+    four: fourActivity2,
+    three: threeActivity2
+}
+
 const act1Prob: HuntProb = {
     six: 50,
     five: 50,
@@ -66,6 +84,12 @@ const act1Prob: HuntProb = {
     three: 0
 }
 
+const act2Prob: HuntProb = {
+    six: 50,
+    five: 50,
+    four: 20,
+    three: 0
+}
 
 var player: JQuery<HTMLAudioElement>;
 
@@ -508,7 +532,7 @@ class HeadHunter {
 var counter = new Counter();
 //var findAgent = new FindAgent(counter, true, 50, sixActivity0, 50, fiveActivity0);
 
-var headHunter = new HeadHunter(true, counter, act1, act1Prob);
+var headHunter = new HeadHunter(true, counter, act0, act0Prob);
 var sjManager = new SJManager(counter);
 
 class ViewControl {
@@ -706,8 +730,11 @@ function SetHunter() {
     if ($('#selector').val() == '0') {
         headHunter = new HeadHunter(true, counter, act0, act0Prob);
     }
-    else {
+    else if ($('#selector').val() == '1') {
         headHunter = new HeadHunter(true, counter, act1, act1Prob);
+    }
+    else {
+        headHunter = new HeadHunter(true, counter, act2, act2Prob);
     }
 }
 
@@ -827,6 +854,27 @@ window.onload = function () {
     //text += sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
     //let text = act1Title + '(' + sixActivity1.join('') + '、' + fiveActivity1.join('、') + ')';
     $('#opt1').text(text);
+
+    if (activityNum == 2) {
+        text = act2Title + '(';
+        if (sixActivity2.length != 0) {
+            text += sixActivity2.join(' ') + ' ';
+        }
+        if (fiveActivity2.length != 0) {
+            text += fiveActivity2.join(' ') + ' ';
+        }
+        if (fourActivity2.length != 0) {
+            text += fourActivity2.join(' ') + ' ';
+        }
+        if (threeActivity2.length != 0) {
+            text += threeActivity2.join(' ') + ' ';
+        }
+        text += ')';
+        //text += sixActivity1.join('、') + '、' + fiveActivity1.join('、') + '、' + fourActivity1.join('、') + ')';
+        //let text = act1Title + '(' + sixActivity1.join('') + '、' + fiveActivity1.join('、') + ')';
+        $('#opt2').show();
+        $('#opt2').text(text);
+    }
 
 
     for (let i = 0; i < 6; i++) {
