@@ -20,23 +20,23 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '无拘熔火'; // 活动卡池
+const act1Title = '瑕光微明'; // 活动卡池
 
 const act2Title = '搅动潮汐之剑';
 
-const sixActivity0: string[] = ['塞雷娅', '温蒂'];
+const sixActivity0: string[] = ['傀影', '推进之王'];
 
-const fiveActivity0: string[] = ['食铁兽', '拉普兰德', '送葬人'];
+const fiveActivity0: string[] = ['格劳克斯', '梅尔', '狮蝎'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['史尔特尔'];
+const sixActivity1: string[] = ['瑕光'];
 
-const fiveActivity1: string[] = ['四月', '极境'];
+const fiveActivity1: string[] = ['奥斯塔', '白金'];
 
-const fourActivity1: string[] = ['芳汀'];
+const fourActivity1: string[] = ['泡泡'];
 
 const threeActivity1: string[] = [];
 
