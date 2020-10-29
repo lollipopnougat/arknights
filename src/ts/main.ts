@@ -24,9 +24,9 @@ const act1Title = '瑕光微明'; // 活动卡池
 
 const act2Title = '搅动潮汐之剑';
 
-const sixActivity0: string[] = ['傀影', '推进之王'];
+const sixActivity0: string[] = ['麦哲伦', '艾雅法拉'];
 
-const fiveActivity0: string[] = ['格劳克斯', '梅尔', '狮蝎'];
+const fiveActivity0: string[] = ['诗怀雅', '灰喉', '吽'];
 
 const fourActivity0: string[] = [];
 
