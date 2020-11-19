@@ -22,11 +22,11 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '勿忘我'; // 活动卡池
 
-const act2Title = '瑕光微明';
+const act2Title = '联合行动';
 
-const sixActivity0: string[] = ['麦哲伦', '艾雅法拉'];
+const sixActivity0: string[] = ['早露', '夜莺'];
 
-const fiveActivity0: string[] = ['诗怀雅', '灰喉', '吽'];
+const fiveActivity0: string[] = ['白面鸮', '红', '月禾'];
 
 const fourActivity0: string[] = [];
 
@@ -40,11 +40,11 @@ const fourActivity1: string[] = ['杰克'];
 
 const threeActivity1: string[] = [];
 
-const sixActivity2: string[] = ['瑕光'];
+const sixActivity2: string[] = ['刻俄柏', '阿', '风笛', '星熊'];
 
-const fiveActivity2: string[] = ['奥斯塔', '白金'];
+const fiveActivity2: string[] = ['蓝毒', '华法琳', '真理', '星极', '布洛卡', '石棉'];
 
-const fourActivity2: string[] = ['泡泡'];
+const fourActivity2: string[] = [];
 
 const threeActivity2: string[] = [];
 
@@ -87,7 +87,7 @@ const act1Prob: HuntProb = {
 const act2Prob: HuntProb = {
     six: 50,
     five: 50,
-    four: 20,
+    four: 0,
     three: 0
 }
 
