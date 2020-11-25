@@ -24,9 +24,9 @@ const act1Title = '勿忘我'; // 活动卡池
 
 const act2Title = '联合行动';
 
-const sixActivity0: string[] = ['早露', '夜莺'];
+const sixActivity0: string[] = ['能天使', '安洁莉娜'];
 
-const fiveActivity0: string[] = ['白面鸮', '红', '月禾'];
+const fiveActivity0: string[] = ['德克萨斯', '初雪', '断崖'];
 
 const fourActivity0: string[] = [];
 
