@@ -23,9 +23,15 @@
 </head>
 
 <body class="center">
-    <audio id="bgm" src="http://music.163.com/song/media/outer/url?id=1371757760.mp3" autoplay loop="true"
+    <!-- music.163.com/song/media/outer/url?id=1371757760.mp3 -->
+    <audio id="bgm" src="http://static.prts.wiki/music/music/act5d0/m_avg_longmenbar_combine.mp3" autoplay loop="true"
         hidden="true">您的浏览器不支持audio标签</audio>
-    <h1 class="headline">明日方舟干员寻访模拟器</h1>
+    <header>
+        <div class="header">
+            <h1 class="headline">明日方舟干员寻访模拟器</h1>
+        </div>
+    </header>
+
     <div class="toolbar2">
         <img src="<%= require('../img/sourcestone.png')%>" class="img-com-sstone" />
         <span class="toolbar-text" id="sstone">56</span>
@@ -73,7 +79,7 @@
     <h1>结果</h1>
     <div class="result-box">
         <div id="image-box">
-        </div>
+    </div>
 
         <p id="resu" class="result-area"></p>
     </div>
@@ -104,19 +110,19 @@
         <h2>数据统计</h2>
         <div class="six-box">
             <h3 class="show six-star">抽到六星干员数</h3>
-            <p class="agent-number six-star" id="sixnum">0</p>
+            <p class="agent-number six-star" id="sixnum" title="点击查看6星寻访历史">0</p>
         </div>
         <div class="five-box">
             <h3 class="show five-star">抽到五星干员数</h3>
-            <p class="agent-number five-star" id="fivenum">0</p>
+            <p class="agent-number five-star" id="fivenum" title="点击查看5星寻访历史">0</p>
         </div>
         <div class="four-box">
             <h3 class="show four-star">抽到四星干员数</h3>
-            <p class="agent-number four-star" id="fournum">0</p>
+            <p class="agent-number four-star" id="fournum" title="点击查看4星寻访历史">0</p>
         </div>
         <div class="three-box">
             <h3 class="show three-star">抽到三星干员数</h3>
-            <p class="agent-number three-star" id="threenum">0</p>
+            <p class="agent-number three-star" id="threenum" title="点击查看3星寻访历史">0</p>
         </div>
         <div class="money-box">
             <h3 class="show money-num">总抽取次数 / 氪金数</h3>

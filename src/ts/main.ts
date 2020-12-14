@@ -101,32 +101,38 @@ class Counter {
     private FindFive: string[];
     private FindFour: string[];
     private FindThree: string[];
+    private FindAll: string[];
     public constructor() {
         this.FindTimes = 0;
         this.FindSix = [];
         this.FindFive = [];
         this.FindFour = [];
         this.FindThree = [];
+        this.FindAll = [];
     }
 
     public AddSix = (val: string) => {
         this.FindTimes++;
         this.FindSix.push(val);
+        this.FindAll.push(val);
     }
 
     public AddFive = (val: string) => {
         this.FindTimes++;
         this.FindFive.push(val);
+        this.FindAll.push(val);
     }
 
     public AddFour = (val: string) => {
         this.FindTimes++;
         this.FindFour.push(val);
+        this.FindAll.push(val);
     }
 
     public AddThree = (val: string) => {
         this.FindTimes++;
         this.FindThree.push(val);
+        this.FindAll.push(val);
     }
 
     public GetTimes = (): number => {
@@ -147,6 +153,10 @@ class Counter {
 
     public GetThree = (): string[] => {
         return this.FindThree;
+    }
+
+    public GetAll = (): string[] => {
+        return this.FindAll;
     }
 
 }
@@ -911,6 +921,46 @@ window.onload = function () {
 
     $('#selector').on('change', SetHunter);
 
+    $('#sixnum').on('click', () => {
+        let tmp = counter.GetSix();
+        if (tmp.length == 0) {
+            alert('还没有寻访到6星...');
+            return;
+        }
+        alert(tmp);
+    });
+
+    $('#fivenum').on('click', () => {
+        let tmp = counter.GetFive();
+        if (tmp.length == 0) {
+            alert('还没有寻访到5星...');
+            return;
+        }
+        alert(tmp);
+    });
+
+    $('#fournum').on('click', () => {
+        let tmp = counter.GetFour();
+        if (tmp.length == 0) {
+            alert('还没有寻访到4星...');
+            return;
+        }
+        alert(tmp);
+    });
+
+    $('#threenum').on('click', () => {
+        let tmp = counter.GetThree();
+        if (tmp.length == 0) {
+            alert('还没有寻访到3星...');
+            return;
+        }
+        alert(tmp);
+    });
+
+    $('#moneycost').on('click', () => {
+        let tmp = counter.GetAll();
+        alert(tmp);
+    });
 
     // if ($('#rad0')) {
     //     $('#rad0').on('change', RadioChange);
