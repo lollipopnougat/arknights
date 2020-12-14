@@ -24,9 +24,9 @@ const act1Title = '勿忘我'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
-const sixActivity0: string[] = ['能天使', '安洁莉娜'];
+const sixActivity0: string[] = ['煌', '铃兰'];
 
-const fiveActivity0: string[] = ['德克萨斯', '初雪', '断崖'];
+const fiveActivity0: string[] = ['莱恩哈特', '苇草', '慑砂'];
 
 const fourActivity0: string[] = [];
 

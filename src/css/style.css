@@ -1,6 +1,9 @@
 .center {
   text-align: center;
 }
+* {
+  user-select: none;
+}
 .do {
   background-color: #d8d8d8;
   cursor: pointer;
