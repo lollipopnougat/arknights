@@ -17,6 +17,26 @@
   margin-top: -4px;
   outline: none;
 }
+::-webkit-scrollbar {
+  width: 0.4rem;
+  height: 0.4rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #eee;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d8d8d8;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #00b0ff;
+}
+::-webkit-scrollbar-track {
+  background-color: #d8d8d8;
+}
+::-webkit-scrollbar-corner {
+  background: #d8d8d8;
+}
 body {
   background-image: url('../img/bg.jpg');
   /* 背景图垂直、水平均居中 */
@@ -24,17 +44,38 @@ body {
   /* 背景图不平铺 */
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-attachment: fixed;
   /* 让背景图基于容器大小伸缩 */
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 h1 {
-  color: #0086f3;
+  color: #00b0ff;
 }
 .headline {
-  text-shadow: rgba(255, 255, 255, 0.7) 3px 0 0, rgba(255, 255, 255, 0.7) 0 1px 0, rgba(255, 255, 255, 0.7) -1px 0 0, rgba(255, 255, 255, 0.7) 0 -1px 0;
-  font-size: 40px;
+  font-size: 20pt;
+  margin-top: 0;
+  padding-top: 15px;
+  padding-left: 10px;
+  color: #00b0ff;
+  text-align: left;
   font-weight: 600;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+* {
+  user-select: none;
+}
+.header {
+  margin: 0;
+  display: block;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .viewbox {
   text-align: center;
@@ -73,7 +114,7 @@ button.close-btn {
 .radio-btn button:hover,
 button.buy-btn:hover,
 button.close-btn:hover {
-  background-color: #0086f3;
+  background-color: #00b0ff;
 }
 .radio-btn button:active,
 button.buy-btn:active,
@@ -102,6 +143,7 @@ button.close-btn:active {
   position: relative;
   top: 19px;
   margin: 0 auto;
+  line-height: 40px;
 }
 .toolbar {
   display: inline-block;
@@ -117,7 +159,7 @@ button.close-btn:active {
   height: 40px;
   line-height: 40px;
   position: relative;
-  margin: 0 auto;
+  margin-top: 10px;
 }
 .toolbar-text {
   font-size: 25px;
@@ -141,14 +183,12 @@ button.close-btn:active {
   font-family: '微软雅黑', '黑体';
   top: -5px;
   vertical-align: top;
-  padding: 15px 0px;
 }
 .btn-top-text-b {
   font-size: 25px;
   color: #eee;
   font-family: '微软雅黑', '黑体';
   vertical-align: top;
-  padding: 15px 0px;
 }
 .btn-top-text-btn {
   font-size: 25px;
@@ -165,6 +205,11 @@ button.close-btn:active {
   font-family: '微软雅黑', '黑体';
   font-size: 3vw;
   margin-top: 0;
+}
+.result-box {
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 @media screen and (max-width: 500px) {
   .result-box {
@@ -239,7 +284,7 @@ button.close-btn:active {
   color: #2d2d2d;
 }
 .package-buy-head {
-  color: #0086f3;
+  color: #00b0ff;
   margin-bottom: 0;
 }
 .package-buy button {
@@ -247,7 +292,7 @@ button.close-btn:active {
   border-radius: 5px;
   font-family: '微软雅黑', '黑体';
   font-size: 15px;
-  background-color: #0086f3;
+  background-color: #00b0ff;
   transition: all 0.5s ease-out 0s;
   color: #eee;
   padding: 10px 20px;
@@ -279,8 +324,11 @@ button.close-btn:active {
   cursor: pointer;
 }
 .showbox div {
-  width: 30%;
+  width: 50%;
   margin: 5px auto;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 .six-star {
   color: #debc02;
@@ -289,7 +337,7 @@ button.close-btn:active {
   color: #dacda5;
 }
 .four-star {
-  color: #0086f3;
+  color: #00b0ff;
 }
 .three-star {
   color: #d8d8d8;
@@ -310,7 +358,7 @@ button.close-btn:active {
 .four-box {
   border: #2d2d2d 2px solid;
   border-radius: 2px;
-  border-color: #0086f3;
+  border-color: #00b0ff;
 }
 .three-box {
   border: #2d2d2d 2px solid;
@@ -330,8 +378,11 @@ button.close-btn:active {
 .footage {
   color: #eee;
 }
+a {
+  transition: all 0.2s ease-in-out;
+}
 a:link {
-  color: #0086f3;
+  color: #00b0ff;
   text-decoration: none;
 }
 a:hover {
@@ -384,7 +435,7 @@ a:visited {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 .select:before {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 0;

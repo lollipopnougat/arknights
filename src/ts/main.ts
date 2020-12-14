@@ -119,6 +119,7 @@ class Counter {
     private FindThree: string[];
     private SpendData: BuyData;
     private SpendMoney: number;
+
     public constructor() {
         this.FindTimes = 0;
         this.FindSix = [];
@@ -185,6 +186,7 @@ class Counter {
 
     public GetSpendingMoney = (): number => {
         return this.SpendMoney;
+
     }
 
 }
@@ -818,6 +820,7 @@ window.onload = function () {
     });
 
     $('#selector').on('change', SetHunter);
+
     let text = act0Title + '(';
     if (sixActivity0.length != 0) {
         text += sixActivity0.join(' ') + ' ';
@@ -834,6 +837,7 @@ window.onload = function () {
     text += ')';
     //let text = act0Title + '(' + sixActivity0.join('、') + '、' + fiveActivity0.join('、') + ')';
     //let text = act0Title + '('  + fiveActivity0.join('、') + ')';
+
     $('#opt0').text(text);
 
 

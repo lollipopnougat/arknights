@@ -16,7 +16,7 @@
 @color_sstone: #c79a49;
 @color_light_yellow: #dacda5;
 @color_sstone2: #641312;
-@color_blue: #0086f3;
+@color_blue: #00b0ff;
 @color_green: #009758;
 @color_light_green: #00ffc8;
 @color_pint: #cf4949;
@@ -40,6 +40,31 @@ p {
   outline: none;
 }
 
+
+::-webkit-scrollbar { 
+  width: 0.4rem; 
+  height: 0.4rem; 
+}
+::-webkit-scrollbar-thumb { 
+ border-radius: 5px; 
+ background: @color_light; 
+}
+
+::-webkit-scrollbar-thumb:hover { 
+ background: @color_grey; 
+}
+
+::-webkit-scrollbar-thumb:active { 
+ background: @color_blue; 
+}
+::-webkit-scrollbar-track { 
+ background-color: @color_grey; 
+}
+::-webkit-scrollbar-corner {
+ 
+ background: @color_grey;
+}
+
 body {
   background-image: url('../img/bg.jpg');
   /* 背景图垂直、水平均居中 */
@@ -47,9 +72,11 @@ body {
   /* 背景图不平铺 */
   background-repeat: no-repeat;
   /* 当内容高度大于图片高度时，背景图像的位置相对于viewport固定 */
-  background-attachment: fixed;
+  //background-attachment: fixed;
   /* 让背景图基于容器大小伸缩 */
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -57,11 +84,35 @@ h1 {
 }
 
 .headline {
-  text-shadow: rgba(255, 255, 255, 0.7) 3px 0 0,
-    rgba(255, 255, 255, 0.7) 0 1px 0, rgba(255, 255, 255, 0.7) -1px 0 0,
-    rgba(255, 255, 255, 0.7) 0 -1px 0;
-  font-size: 40px;
+  //text-shadow: rgba(255, 255, 255, 0.7) 3px 0 0,
+    //rgba(255, 255, 255, 0.7) 0 1px 0, rgba(255, 255, 255, 0.7) -1px 0 0,
+    //rgba(255, 255, 255, 0.7) 0 -1px 0;
+  font-size: 20pt;
+  margin-top: 0;
+  padding-top: 15px;
+  padding-left: 10px;
+  color: @color_blue;
+  text-align: left;
   font-weight: @btn_font_weight;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+* {
+  user-select: none;
+}
+
+.header {
+  margin: 0;
+  display: block;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .viewbox {
@@ -138,6 +189,7 @@ button.close-btn:active {
   position: relative;
   top: 19px;
   margin: 0 auto;
+  line-height: 40px;
 }
 
 .toolbar {
@@ -157,7 +209,7 @@ button.close-btn:active {
   height: 40px;
   line-height: 40px;
   position: relative;
-  margin: 0 auto;
+  margin-top: 10px;
 }
 
 .toolbar-text {
@@ -185,7 +237,7 @@ button.close-btn:active {
   font-family: '微软雅黑', '黑体';
   top: -5px;
   vertical-align: top;
-  padding: 15px 0px;
+  // padding: 15px 0px;
   //   margin-left: 15px;
 }
 
@@ -194,7 +246,7 @@ button.close-btn:active {
   color: @color_light;
   font-family: '微软雅黑', '黑体';
   vertical-align: top;
-  padding: 15px 0px;
+  //padding: 15px 0px;
   //   margin-left: 25px;
 }
 .btn-top-text-btn {
@@ -215,6 +267,12 @@ button.close-btn:active {
   font-family: '微软雅黑', '黑体';
   font-size: @res_font_size;
   margin-top: 0;
+}
+
+.result-box {
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 @media screen and (max-width: 500px) {
@@ -340,8 +398,11 @@ button.close-btn:active {
 }
 
 .showbox div {
-  width: 30%;
+  width: 50%;
   margin: 5px auto;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 .six-star {
@@ -404,6 +465,10 @@ button.close-btn:active {
   color: @color_light;
 }
 
+a {
+  transition: all 0.2s ease-in-out;
+}
+
 a:link {
   color: @color_blue;
   text-decoration: none;
@@ -446,7 +511,6 @@ a:visited {
   z-index: 3;
 }
 
-
 .select {
   display: inline-block;
   width: 300px;
@@ -468,7 +532,7 @@ a:visited {
 }
 
 .select:before {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   height: 0;
