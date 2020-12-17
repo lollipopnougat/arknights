@@ -34,7 +34,7 @@ const threeActivity0: string[] = [];
 
 const sixActivity1: string[] = ['山'];
 
-const fiveActivity1: string[] = ['卡夫卡'];
+const fiveActivity1: string[] = ['卡夫卡', '赫默'];
 
 const fourActivity1: string[] = ['松果'];
 
