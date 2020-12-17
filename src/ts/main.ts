@@ -20,7 +20,7 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '勿忘我'; // 活动卡池
+const act1Title = '自由的囚徒'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
@@ -32,11 +32,11 @@ const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['迷迭香', '泥岩'];
+const sixActivity1: string[] = ['山'];
 
-const fiveActivity1: string[] = ['絮雨'];
+const fiveActivity1: string[] = ['卡夫卡'];
 
-const fourActivity1: string[] = ['杰克'];
+const fourActivity1: string[] = ['松果'];
 
 const threeActivity1: string[] = [];
 
@@ -78,7 +78,7 @@ const act2: Agents = {
 }
 
 const act1Prob: HuntProb = {
-    six: 70,
+    six: 50,
     five: 50,
     four: 20,
     three: 0
@@ -91,7 +91,7 @@ const act2Prob: HuntProb = {
     three: 0
 }
 
-var player: JQuery<HTMLAudioElement>;
+//var player: JQuery<HTMLAudioElement>;
 
 
 class Random {
@@ -607,9 +607,9 @@ class ViewControl {
 }
 
 function DrawOnce() {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     try {
         ViewControl.HideRadio();
         if (SJManager.compoundJade - 600 < 0) {
@@ -639,9 +639,9 @@ function DrawOnce() {
 }
 
 function DrawTenth() {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     //console.log('点击了寻访十次');
     try {
         ViewControl.HideRadio();
@@ -674,9 +674,9 @@ function DrawTenth() {
 }
 
 function BuySStone(type: number) {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     try {
         let num;
         if (sjManager.IsFirstBuy(type)) num = sstoneFEx[type];
@@ -694,9 +694,9 @@ function BuySStone(type: number) {
 }
 
 function BuyPackage(money: number, type: number) {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     try {
         let result: boolean = confirm('是否花费' + money.toString() + '元购买 ' + packageDesc[type] + ' ?');
         if (!result) return;
@@ -709,9 +709,9 @@ function BuyPackage(money: number, type: number) {
 }
 
 function ConvertStoneToJade() {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     try {
         let num = parseInt(prompt("请输入您想要兑换的源石数量：", "1"));
         if (isNaN(num)) num = 1;
@@ -726,9 +726,9 @@ function ConvertStoneToJade() {
 }
 
 function SetHunter() {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     if ($('#selector').val() == '0') {
         headHunter = new HeadHunter(true, counter, act0, act0Prob);
     }
@@ -754,9 +754,9 @@ interface ViewData {
 
 
 function ShowHis(type: MyEvent) {
-    if (player[0].paused) {
-        player[0].play();
-    }
+    // if (player[0].paused) {
+    //     player[0].play();
+    // }
     let agent_str = '';
     let agent_map: ViewData = {};
     let agent_array: string[];
@@ -788,34 +788,35 @@ function ShowHis(type: MyEvent) {
 
 
 window.onload = function () {
-    player = $('#bgm');
+    //player = $('#bgm');
+
     $('#CSTJ').on('click', ConvertStoneToJade);
 
     $('#show-panel1').on('click', () => {
-        if (player[0].paused) {
-            player[0].play();
-        }
+        // if (player[0].paused) {
+        //     player[0].play();
+        // }
         $('#panel1').fadeIn();
     });
 
     $('#show-panel2').on('click', () => {
-        if (player[0].paused) {
-            player[0].play();
-        }
+        // if (player[0].paused) {
+        //     player[0].play();
+        // }
         $('#panel2').fadeIn();
     });
 
     $('#close-panel1').on('click', () => {
-        if (player[0].paused) {
-            player[0].play();
-        }
+        // if (player[0].paused) {
+        //     player[0].play();
+        // }
         $('#panel1').fadeOut();
     });
 
     $('#close-panel2').on('click', () => {
-        if (player[0].paused) {
-            player[0].play();
-        }
+        // if (player[0].paused) {
+        //     player[0].play();
+        // }
         $('#panel2').fadeOut();
     });
 
@@ -897,9 +898,9 @@ window.onload = function () {
     $('#fournum').on('click', '', { type: 4 }, ShowHis);
     $('#threenum').on('click', '', { type: 3 }, ShowHis);
     $('#moneycost').on('click', () => {
-        if (player[0].paused) {
-            player[0].play();
-        }
+        // if (player[0].paused) {
+        //     player[0].play();
+        // }
         let cost_data: BuyData = counter.GetSpendingData();
         let cost_str: string = '';
         if (JSON.stringify(cost_data) == '{}') {

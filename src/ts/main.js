@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 require("../css/style.css");
 var $ = require('jquery');
-var six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光'];
-var five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔'];
-var four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀', '泡泡'];
+var six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光', '泥岩'];
+var five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔', '絮雨'];
+var four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀', '泡泡', '杰克'];
 var three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 var packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '感谢庆典备战包 (源石*90, 10连凭证*1)', '月卡 (6源石+每天200合成玉)'];
 var sstoneNum = [1, 7, 24, 50, 90, 185];
@@ -13,18 +13,18 @@ var sstoneFEx = [3, 12, 40, 80, 132, 260];
 var activityNum = 2;
 var act0Title = '常驻标准寻访';
 var act1Title = '勿忘我';
-var act2Title = '联合行动';
-var sixActivity0 = ['能天使', '安洁莉娜'];
-var fiveActivity0 = ['德克萨斯', '初雪', '断崖'];
+var act2Title = '锁与匙的守卫者';
+var sixActivity0 = ['煌', '铃兰'];
+var fiveActivity0 = ['莱恩哈特', '苇草', '慑砂'];
 var fourActivity0 = [];
 var threeActivity0 = [];
 var sixActivity1 = ['迷迭香', '泥岩'];
 var fiveActivity1 = ['絮雨'];
 var fourActivity1 = ['杰克'];
 var threeActivity1 = [];
-var sixActivity2 = ['刻俄柏', '阿', '风笛', '星熊'];
-var fiveActivity2 = ['蓝毒', '华法琳', '真理', '星极', '布洛卡', '石棉'];
-var fourActivity2 = [];
+var sixActivity2 = ['莫斯提马'];
+var fiveActivity2 = ['槐琥', '守林人'];
+var fourActivity2 = ['梅'];
 var threeActivity2 = [];
 var act0 = {
     six: sixActivity0,
@@ -59,7 +59,7 @@ var act1Prob = {
 var act2Prob = {
     six: 50,
     five: 50,
-    four: 0,
+    four: 20,
     three: 0
 };
 var player;
@@ -687,30 +687,20 @@ function ShowHis(type) {
     alert(agent_str);
 }
 window.onload = function () {
-    player = $('#bgm');
+    var user_res = confirm('是否要播放背景音乐？');
+    if (user_res) {
+    }
     $('#CSTJ').on('click', ConvertStoneToJade);
     $('#show-panel1').on('click', function () {
-        if (player[0].paused) {
-            player[0].play();
-        }
         $('#panel1').fadeIn();
     });
     $('#show-panel2').on('click', function () {
-        if (player[0].paused) {
-            player[0].play();
-        }
         $('#panel2').fadeIn();
     });
     $('#close-panel1').on('click', function () {
-        if (player[0].paused) {
-            player[0].play();
-        }
         $('#panel1').fadeOut();
     });
     $('#close-panel2').on('click', function () {
-        if (player[0].paused) {
-            player[0].play();
-        }
         $('#panel2').fadeOut();
     });
     $('#selector').on('change', SetHunter);
@@ -779,9 +769,6 @@ window.onload = function () {
     $('#fournum').on('click', '', { type: 4 }, ShowHis);
     $('#threenum').on('click', '', { type: 3 }, ShowHis);
     $('#moneycost').on('click', function () {
-        if (player[0].paused) {
-            player[0].play();
-        }
         var cost_data = counter.GetSpendingData();
         var cost_str = '';
         if (JSON.stringify(cost_data) == '{}') {

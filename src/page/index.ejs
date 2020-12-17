@@ -24,8 +24,7 @@
 
 <body class="center">
     <!-- music.163.com/song/media/outer/url?id=1371757760.mp3 -->
-    <audio id="bgm" src="http://static.prts.wiki/music/music/act5d0/m_avg_longmenbar_combine.mp3" autoplay loop="true"
-        hidden="true">您的浏览器不支持audio标签</audio>
+    <!-- <audio id="bgm" src="https://music.163.com/song/media/outer/url?id=1371757760.mp3" autoplay loop="true" hidden="true">您的浏览器不支持audio标签</audio> -->
     <header>
         <div class="header">
             <h1 class="headline">明日方舟干员寻访模拟器</h1>
@@ -46,10 +45,10 @@
     </div>
     <div class="radio-btn">
         <!-- <span class="rad-text">选择卡池</span><button onclick="location.reload()">重置</button><br>
-        <input type="radio" id="rad1" name="select-type" />
-        <span class="radio-text" id="act1">寻访1</span><br>
-        <input type="radio" id="rad0" checked name="select-type"  />
-        <span class="radio-text" id="act0">寻访0</span> -->
+            <input type="radio" id="rad1" name="select-type" />
+            <span class="radio-text" id="act1">寻访1</span><br>
+            <input type="radio" id="rad0" checked name="select-type"  />
+            <span class="radio-text" id="act0">寻访0</span> -->
         <div class="select">
             <select id="selector">
                 <option value="0" id="opt0">寻访1</option>
@@ -79,8 +78,7 @@
     </div>
     <h1>结果</h1>
     <div class="result-box">
-        <div id="image-box">
-    </div>
+        <div id="image-box"></div>
 
         <p id="resu" class="result-area"></p>
     </div>
@@ -129,6 +127,15 @@
             <h3 class="show money-num">总抽取次数 / 氪金数</h3>
             <p class="agent-number money-num" id="moneycost" title="点击查看氪金详情">0 / 0</p>
         </div>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> -->
+        <!-- require MetingJS -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <meting-js server="netease" type="playlist" id="5312025201">
+        </meting-js> -->
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="musiciframe"
+            src="https://music.163.com/outchain/player?type=3&id=2064303166&auto=0&height=66"></iframe>
         <p class="footage">Copyright <a href="https://github.com/lollipopnougat">lnp</a> 2020</p>
     </div>
 

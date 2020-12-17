@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 @btn_padding_v: 10px;
 @btn_padding_h: 20px;
 @color_yellow: #debc02;
@@ -10,6 +9,7 @@
 @res_font_size: 3vw;
 @buy_font_size: 15px;
 @color_light: #eee;
+@color_white: #fff;
 @color_grey: #d8d8d8;
 @color_dark: #2d2d2d;
 @color_jade: #8a2f00;
@@ -22,7 +22,7 @@
 @color_pint: #cf4949;
 @btn_font_weight: 600;
 
-p {
+* {
   user-select: none;
 }
 
@@ -51,7 +51,7 @@ p {
 }
 
 ::-webkit-scrollbar-thumb:hover { 
- background: @color_grey; 
+ background: @color_white; 
 }
 
 ::-webkit-scrollbar-thumb:active { 
@@ -111,8 +111,8 @@ header {
   display: block;
   height: 72px;
   background: rgba(0, 0, 0, 0.6);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .viewbox {
@@ -503,9 +503,9 @@ a:visited {
   left: 50%;
   margin-left: -140px;
   top: 10%;
-  backdrop-filter: blur(5px);
-  opacity: 0.85;
-  background: @color_dark;
+  backdrop-filter: blur(15px);
+  //opacity: 0.85;
+  background: rgba(0, 0, 0, 0.6);
   padding: 0 5px 5px 5px;
   border-radius: 10px;
   z-index: 3;
@@ -562,4 +562,9 @@ a:visited {
 #selector option {
   background: @color_light;
   border: none;
+}
+
+#musiciframe {
+  height: 100px;
+  //display: none;
 }
