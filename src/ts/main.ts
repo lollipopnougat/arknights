@@ -24,9 +24,9 @@ const act1Title = '自由的囚徒'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
-const sixActivity0: string[] = ['煌', '铃兰'];
+const sixActivity0: string[] = ['斯卡蒂', '塞雷娅'];
 
-const fiveActivity0: string[] = ['莱恩哈特', '苇草', '慑砂'];
+const fiveActivity0: string[] = ['白金', '极境', '芙兰卡'];
 
 const fourActivity0: string[] = [];
 
