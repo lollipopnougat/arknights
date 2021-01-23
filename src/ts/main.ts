@@ -20,23 +20,23 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '麦穗与赞美诗'; // 活动卡池
+const act1Title = '地生五金（复刻）'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
-const sixActivity0: string[] = ['斯卡蒂', '塞雷娅'];
+const sixActivity0: string[] = ['推进之王', '陈'];
 
-const fiveActivity0: string[] = ['白金', '极境', '芙兰卡'];
+const fiveActivity0: string[] = ['临光', '可颂', '燧石'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['空弦'];
+const sixActivity1: string[] = ['年', '阿'];
 
-const fiveActivity1: string[] = ['爱丽丝', '贾维'];
+const fiveActivity1: string[] = ['吽'];
 
-const fourActivity1: string[] = ['豆苗'];
+const fourActivity1: string[] = [];
 
 const threeActivity1: string[] = [];
 
@@ -78,9 +78,9 @@ const act2: Agents = {
 }
 
 const act1Prob: HuntProb = {
-    six: 50,
+    six: 70,
     five: 50,
-    four: 20,
+    four: 0,
     three: 0
 }
 
