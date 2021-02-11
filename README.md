@@ -1,22 +1,24 @@
 # 明日方舟寻访模拟器
 
+Arknights Hunting Simulator
+
 ## 由于没有钱，所以搞了这东西抽个爽...
 
 ## 功能
 
 - 寻访一次
 - 寻访十次
-- ~~模拟氪金~~
+- 模拟~~氪金~~
 
 ## 使用方法
 
-### 如果只是模拟抽卡，请访问托管页面：<br>
+### 如果要体验模拟抽卡，请访问托管页面：<br>
 
 [Github Pages地址(推荐)](https://www.lollipopnougat.top/arknights/)<br>
 [新版Coding 地址](https://09z7l3.coding-pages.com/)
 [Coding Pages地址(已废弃)](https://crepe.coding.me/arknights/)<br>
 
-### 如果对此项目感兴趣
+### 如果对此项目本身感兴趣
 
 此项目是采用 `typescript` + `less` + `html` 进行前端开发的小型静态页面，使用 `webpack` 构建打包
 
@@ -46,4 +48,4 @@ npm run build
 
 ## 写在最后
 
-到现在没什么可说的了
+什么时候加强忧郁蓝调组？？？

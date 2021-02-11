@@ -20,21 +20,21 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '地生五金（复刻）'; // 活动卡池
+const act1Title = '月隐晦明'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
-const sixActivity0: string[] = ['推进之王', '陈'];
+const sixActivity0: string[] = ['棘刺', '莫斯提马'];
 
-const fiveActivity0: string[] = ['临光', '可颂', '燧石'];
+const fiveActivity0: string[] = ['梅尔', '空', '四月'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['年', '阿'];
+const sixActivity1: string[] = ['夕', '嵯峨', '年'];
 
-const fiveActivity1: string[] = ['吽'];
+const fiveActivity1: string[] = ['乌有'];
 
 const fourActivity1: string[] = [];
 
