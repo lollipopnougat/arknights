@@ -24,9 +24,9 @@ const act1Title = '月隐晦明'; // 活动卡池
 
 const act2Title = '锁与匙的守卫者';
 
-const sixActivity0: string[] = ['棘刺', '莫斯提马'];
+const sixActivity0: string[] = ['伊芙利特', '森蚺'];
 
-const fiveActivity0: string[] = ['梅尔', '空', '四月'];
+const fiveActivity0: string[] = ['幽灵鲨', '惊蛰', '食铁兽'];
 
 const fourActivity0: string[] = [];
 
