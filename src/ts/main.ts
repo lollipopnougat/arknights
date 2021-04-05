@@ -22,11 +22,11 @@ const act0Title = '常驻标准寻访';
 
 const act1Title = '进攻-防守-战术交汇'; // 活动卡池
 
-const act2Title = '锁与匙的守卫者';
+const act2Title = '往日幻象';
 
-const sixActivity0: string[] = ['刻俄柏', '安洁莉娜'];
+const sixActivity0: string[] = ['瑕光', '星熊'];
 
-const fiveActivity0: string[] = ['拉普兰德', '絮雨', '普罗旺斯'];
+const fiveActivity0: string[] = ['狮蝎', '凛冬', '格劳克斯'];
 
 const fourActivity0: string[] = [];
 
@@ -40,11 +40,11 @@ const fourActivity1: string[] = [];
 
 const threeActivity1: string[] = [];
 
-const sixActivity2: string[] = ['莫斯提马'];
+const sixActivity2: string[] = ['傀影'];
 
-const fiveActivity2: string[] = ['槐琥', '守林人'];
+const fiveActivity2: string[] = ['白面鸮', '巫恋'];
 
-const fourActivity2: string[] = ['梅'];
+const fourActivity2: string[] = ['刻刀'];
 
 const threeActivity2: string[] = [];
 
