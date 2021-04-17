@@ -20,21 +20,21 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '进攻-防守-战术交汇'; // 活动卡池
+const act1Title = '沙海过客'; // 活动卡池
 
 const act2Title = '往日幻象';
 
-const sixActivity0: string[] = ['瑕光', '星熊'];
+const sixActivity0: string[] = ['泥岩', '赫拉格'];
 
-const fiveActivity0: string[] = ['狮蝎', '凛冬', '格劳克斯'];
+const fiveActivity0: string[] = ['卡夫卡', '送葬人', '灰喉'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['灰烬'];
+const sixActivity1: string[] = ['异客'];
 
-const fiveActivity1: string[] = ['闪击', '霜华'];
+const fiveActivity1: string[] = ['慑砂', '熔泉'];
 
 const fourActivity1: string[] = [];
 
@@ -83,7 +83,7 @@ const act1Prob: HuntProb = {
     five: 50,
     four: 0,
     three: 0,
-    back: 120
+    back: 0
 }
 
 const act2Prob: HuntProb = {
