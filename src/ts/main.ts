@@ -1,8 +1,8 @@
 import "../css/style.css";
 var $ = require('jquery');
-const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光', '泥岩', '山', '空弦', '嵯峨'];
+const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光', '泥岩', '山', '空弦', '嵯峨', '异客'];
 
-const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔', '絮雨', '卡夫卡', '爱丽丝', '乌有'];
+const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔', '絮雨', '卡夫卡', '爱丽丝', '乌有', '熔泉'];
 
 const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀', '泡泡', '杰克', '松果', '豆苗'];
 
@@ -20,21 +20,21 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '沙海过客'; // 活动卡池
+const act1Title = '深悼'; // 活动卡池
 
 const act2Title = '往日幻象';
 
-const sixActivity0: string[] = ['泥岩', '赫拉格'];
+const sixActivity0: string[] = ['山', '煌'];
 
-const fiveActivity0: string[] = ['卡夫卡', '送葬人', '灰喉'];
+const fiveActivity0: string[] = ['燧石', '布洛卡', '石棉'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['异客'];
+const sixActivity1: string[] = ['浊心斯卡蒂', '凯尔希'];
 
-const fiveActivity1: string[] = ['慑砂', '熔泉'];
+const fiveActivity1: string[] = ['赤东'];
 
 const fourActivity1: string[] = [];
 
@@ -53,7 +53,8 @@ const act0: Agents = {
     six: sixActivity0,
     five: fiveActivity0,
     four: fourActivity0,
-    three: threeActivity0
+    three: threeActivity0,
+    sixo: []
 };
 
 const act0Prob: HuntProb = {
@@ -68,14 +69,16 @@ const act1: Agents = {
     six: sixActivity1,
     five: fiveActivity1,
     four: fourActivity1,
-    three: threeActivity1
+    three: threeActivity1,
+    sixo: ['W']
 };
 
 const act2: Agents = {
     six: sixActivity2,
     five: fiveActivity2,
     four: fourActivity2,
-    three: threeActivity2
+    three: threeActivity2,
+    sixo: []
 }
 
 const act1Prob: HuntProb = {
@@ -370,6 +373,7 @@ interface Agents {
     five: string[];
     four: string[];
     three: string[];
+    sixo: string[];
 }
 
 interface HuntProb {
@@ -394,14 +398,19 @@ class HeadHunter {
     private minFloor = 10;
     private isActivity: boolean;
     private counter: Counter;
+    private hasExOp: boolean = false;
     constructor(isAct: boolean, count: Counter, actAgent: Agents, huntProb: HuntProb) {
         this.normalAgents = {
             six: six,
             five: five,
             four: four,
-            three: three
+            three: three,
+            sixo: []
         };
         this.activityAgents = actAgent;
+        if (actAgent.sixo.length != 0) {
+            this.hasExOp = true;
+        }
         this.huntProb = huntProb;
         this.validSixTimes = 0;
         this.rand = new Random();
@@ -438,7 +447,7 @@ class HeadHunter {
         }
         else {
             switch (stars) {
-                case 6: num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
+                case 6: if (this.hasExOp && this.rand.Next(0, 1) == 1) { res = this.activityAgents.sixo[0]; break; } num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
                 case 5: num = this.normalAgents.five.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.five[prob]; break;
                 case 4: num = this.normalAgents.four.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.four[prob]; break;
                 case 3: num = this.normalAgents.three.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.three[prob]; break;
@@ -450,13 +459,13 @@ class HeadHunter {
 
     public HuntOnce = (): HuntRes => {
         this.validSixTimes++;
-        
+
         let prob = this.rand.Next(0, 100);
-        
+
         let currSixProb = this.AddSixProb() % 100;
         let currFiveProb = (this.AddSixProb() + 8) % 100;
         let currFourProb = (this.AddSixProb() + 8 + 50) % 100;
-        
+
         if (this.minFloor > 1) this.minFloor--;
         else if (this.minFloor == 1) {
             if (this.rand.Next(0, 3) == 3) currSixProb = 100;
