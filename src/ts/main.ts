@@ -70,7 +70,7 @@ const act1: Agents = {
     five: fiveActivity1,
     four: fourActivity1,
     three: threeActivity1,
-    sixo: ['W']
+    sixo: []
 };
 
 const act2: Agents = {
