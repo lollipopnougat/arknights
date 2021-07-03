@@ -20,31 +20,31 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '革新交响曲'; // 活动卡池
+const act1Title = '从星火中来'; // 活动卡池
 
-const act2Title = '往日幻象';
+const act2Title = '君影轻灵';
 
-const sixActivity0: string[] = ['史尔特尔', '艾雅法拉'];
+const sixActivity0: string[] = ['空弦', '风笛'];
 
-const fiveActivity0: string[] = ['凛冬', '槐琥', '华法琳'];
+const fiveActivity0: string[] = ['月禾', '初雪', '蜜蜡'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['卡涅利安'];
+const sixActivity1: string[] = ['帕拉斯'];
 
-const fiveActivity1: string[] = ['崖心', '绮良'];
+const fiveActivity1: string[] = ['幽灵鲨', '红'];
 
-const fourActivity1: string[] = ['深靛'];
+const fourActivity1: string[] = [];
 
 const threeActivity1: string[] = [];
 
-const sixActivity2: string[] = ['傀影'];
+const sixActivity2: string[] = ['铃兰'];
 
-const fiveActivity2: string[] = ['白面鸮', '巫恋'];
+const fiveActivity2: string[] = ['断崖', '夜魔'];
 
-const fourActivity2: string[] = ['刻刀'];
+const fourActivity2: string[] = ['卡达'];
 
 const threeActivity2: string[] = [];
 
