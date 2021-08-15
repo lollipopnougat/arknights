@@ -402,6 +402,12 @@ a:visited {
   font-weight: 600;
   text-shadow: #eee 1px 0 0, #eee 0 1px 0, #eee -1px 0 0, #eee 0 -1px 0;
 }
+.rate {
+  color: #8a2f00;
+  margin-bottom: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
 .float-block {
   display: none;
   position: fixed;

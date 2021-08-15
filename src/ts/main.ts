@@ -1,14 +1,14 @@
 import "../css/style.css";
 var $ = require('jquery');
-const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光', '泥岩', '山', '空弦', '嵯峨', '异客', '凯尔希'];
+const six = ['能天使', '推进之王', '伊芙利特', '艾雅法拉', '安洁莉娜', '闪灵', '夜莺', '星熊', '塞雷娅', '银灰', '斯卡蒂', '陈', '黑', '赫拉格', '麦哲伦', '莫斯提马', '煌', '阿', '刻俄柏', '风笛', '傀影', '温蒂', '早露', '铃兰', '棘刺', '森蚺', '史尔特尔', '瑕光', '泥岩', '山', '空弦', '嵯峨', '异客', '凯尔希', '卡涅利安', '帕拉斯', '水月'];
 
-const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔', '絮雨', '卡夫卡', '爱丽丝', '乌有', '熔泉', '赤东'];
+const five = ['白面鸮', '凛冬', '德克萨斯', '芙兰卡', '拉普兰德', '幽灵鲨', '蓝毒', '白金', '陨星', '天火', '梅尔', '赫默', '华法琳', '临光', '红', '雷蛇', '可颂', '普罗旺斯', '守林人', '崖心', '初雪', '真理', '空', '狮蝎', '食铁兽', '夜魔', '诗怀雅', '格劳克斯', '星极', '送葬人', '槐琥', '苇草', '布洛卡', '灰喉', '吽', '惊蛰', '慑砂', '巫恋', '极境', '月禾', '石棉', '莱恩哈特', '蜜蜡', '贾维', '安哲拉', '燧石', '四月', '奥斯塔', '絮雨', '卡夫卡', '爱丽丝', '乌有', '熔泉', '赤东', '绮良'];
 
-const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀', '泡泡', '杰克', '松果', '豆苗'];
+const four = ['夜烟', '远山', '杰西卡', '流星', '白雪', '清道夫', '红豆', '杜宾', '缠丸', '霜叶', '慕斯', '砾', '暗索', '末药', '调香师', '角峰', '蛇屠箱', '古米', '深海色', '地灵', '阿消', '猎蜂', '格雷伊', '苏苏洛', '桃金娘', '红云', '梅', '安比尔', '宴', '刻刀', '波登可', '卡达', '孑', '酸糖', '芳汀', '泡泡', '杰克', '松果', '豆苗', '深靛'];
 
 const three = ['芬', '香草', '翎羽', '玫兰莎', '卡缇', '米格鲁', '克洛丝', '炎熔', '芙蓉', '安塞尔', '史都华德', '梓兰', '空爆', '月见夜', '斑点', '泡普卡'];
 
-const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '感谢庆典备战包 (源石*90, 10连凭证*1)', '月卡 (6源石+每天200合成玉)'];
+const packageDesc = ['每月寻访礼包 (源石*42, 10连凭证*1)', '新人寻访组合包 (10连凭证*2)', '感谢庆典备战包 (源石*90, 10连凭证*1)', '月卡 (6源石+每天200合成玉)', '观光礼包 (10连凭证*2, 补发24合成玉)'];
 
 const sstoneNum = [1, 7, 24, 50, 90, 185]; // 源石礼包中的源石数
 
@@ -20,21 +20,21 @@ const activityNum = 2;
 
 const act0Title = '常驻标准寻访';
 
-const act1Title = '从星火中来'; // 活动卡池
+const act1Title = '盛夏新星'; // 活动卡池
 
 const act2Title = '君影轻灵';
 
-const sixActivity0: string[] = ['空弦', '风笛'];
+const sixActivity0: string[] = ['傀影', '泥岩'];
 
-const fiveActivity0: string[] = ['月禾', '初雪', '蜜蜡'];
+const fiveActivity0: string[] = ['贾维', '苇草', '吽'];
 
 const fourActivity0: string[] = [];
 
 const threeActivity0: string[] = [];
 
-const sixActivity1: string[] = ['帕拉斯'];
+const sixActivity1: string[] = ['假日威龙陈', '水月'];
 
-const fiveActivity1: string[] = ['幽灵鲨', '红'];
+const fiveActivity1: string[] = ['羽毛笔'];
 
 const fourActivity1: string[] = [];
 
@@ -355,6 +355,12 @@ class SJManager {
                 //this.AddMoney(30); 
                 this.AddJade(6000);
                 break;
+            case 4:
+                this.AddStone(24);
+                this.counter.Spend('观光礼包', 198);
+                //this.AddMoney(30); 
+                this.AddJade(12000);
+                break;
             default: throw new Error('不存在价格为 ' + money.toString() + ' 的组合包');
         }
 
@@ -418,7 +424,7 @@ class HeadHunter {
         this.counter = count;
     }
 
-    private AddSixProb = (): number => {
+    public AddSixProb = (): number => {
         let times = this.validSixTimes;
         let pro = 2;
         while (times - 50 >= 0) {
@@ -572,6 +578,7 @@ class ViewControl {
         $('#fournum').text(counter.GetFour().length);
         $('#threenum').text(counter.GetThree().length);
         $('#moneycost').text(`${counter.GetTimes()} / ${counter.GetSpendingMoney()}`);
+        $('#rate').text(`当前6星出率: ${headHunter.AddSixProb()}%`);
         if (minFloor == 0) {
             $('#tips').text('保底已出');
         }
@@ -811,7 +818,7 @@ function ShowHis(type: MyEvent) {
 }
 
 
-window.onload = function () {
+(function () {
     //player = $('#bgm');
 
     $('#CSTJ').on('click', ConvertStoneToJade);
@@ -914,6 +921,7 @@ window.onload = function () {
     $('#buy-package1').on('click', () => { BuyPackage(128, 1); });
     $('#buy-package2').on('click', () => { BuyPackage(328, 2); });
     $('#buy-package3').on('click', () => { BuyPackage(30, 3); });
+    $('#buy-package4').on('click', () => { BuyPackage(198, 4); });
     $('#DO').on('click', DrawOnce);
     $('#DT').on('click', DrawTenth);
 
@@ -936,7 +944,7 @@ window.onload = function () {
         }
         alert(cost_str);
     });
-}
+})();
 
 
 
