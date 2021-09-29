@@ -37,8 +37,8 @@ export const noactdata: PoolData = {
 }
 
 const act0data: PoolData = {
-    six: ['闪灵', '异客'],
-    five: ['天火', '卡夫卡', '守林人'],
+    six: ['空弦', '温蒂'],
+    five: ['拉普兰德', '格劳克斯', '空'],
     four: [],
     three: [],
     name: '常驻标准寻访',
@@ -51,14 +51,14 @@ const act0data: PoolData = {
 };
 
 const act1data: PoolData = { // 活动池
-    six: ['假日威龙陈', '水月'],
-    five: ['羽毛笔'],
-    four: [],
+    six: ['琴柳'],
+    five: ['桑葚'],
+    four: ['罗比菈塔'],
     three: [],
-    name: '盛夏新星',
-    prob6: 70,
+    name: '小丘上的眠柳',
+    prob6: 50,
     prob5: 50,
-    prob4: 0,
+    prob4: 20,
     prob3: 0,
     floor: [],
     probfloorcount: 0
