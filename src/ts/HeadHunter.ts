@@ -16,6 +16,7 @@ export class HeadHunter {
         this.normalAgents = noactdata;
         this.curAct = cur;
         this.actList = actList;
+
         if(this.actList[this.curAct].floor.length != 0) {
             this.hasExOp = true;
         }
@@ -51,7 +52,7 @@ export class HeadHunter {
         }
         else {
             switch (stars) {
-                case 6: if (this.hasExOp && this.rand.Next(0, 1) == 1) { res = this.actList[this.curAct].floor[0]; break; } num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
+                case 6: if (this.hasExOp && (this.rand.Next(0, 1) == 1)) { res = this.actList[this.curAct].floor[this.rand.Next(0, 1)]; break; } num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
                 case 5: num = this.normalAgents.five.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.five[prob]; break;
                 case 4: num = this.normalAgents.four.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.four[prob]; break;
                 case 3: num = this.normalAgents.three.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.three[prob]; break;
@@ -94,7 +95,7 @@ export class HeadHunter {
                 };
             }
             //console.log('抽6');
-            let res_name = this.GetAgent(6, this.isActivity && this.rand.Next(0, 100) <= this.actList[this.curAct].prob6 && this.actList[this.curAct].six.length != 0);
+            let res_name = this.GetAgent(6, this.isActivity && this.actList[this.curAct].six.length != 0 && this.rand.Next(0, 100) <= this.actList[this.curAct].prob6);
             this.validSixTimes = 0;
             this.counter.AddSix(res_name);
             res = {
@@ -158,6 +159,9 @@ export class HeadHunter {
             throw new Error(`不存在编号为 ${type} 的卡池`);
         }
         this.curAct = type;
+        if(this.actList[this.curAct].floor.length != 0) {
+            this.hasExOp = true;
+        }
     }
 
 
