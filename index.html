@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="明日方舟 寻访 模拟器">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="./images/sourcestone.png" />
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6fab098681604cd4315aa11b94a18284";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script> -->
+    <title>明日方舟寻访模拟</title>
+</head>
+
+<body class="center">
+    <!-- music.163.com/song/media/outer/url?id=1371757760.mp3 -->
+    <!-- <audio id="bgm" src="https://music.163.com/song/media/outer/url?id=1371757760.mp3" autoplay loop="true" hidden="true">您的浏览器不支持audio标签</audio> -->
+    <header>
+        <div class="header">
+            <h1 class="headline">明日方舟干员寻访模拟器</h1>
+        </div>
+    </header>
+
+    <div class="toolbar2">
+        <img src="./images/sourcestone.png" class="img-com-sstone" />
+        <span class="toolbar-text" id="sstone">56</span>
+        <span class="toolbar-logo-text">&rarr;</span>
+        <img src="./images/jade.png" class="img-com-sstone2" />
+        <span class="toolbar-text" id="tojade">10080</span>
+    </div>
+    <div class="toolbar">
+        <img src="./images/jade.png" class="img-com-jade" />
+        <span class="toolbar-text" id="jade">12000</span>
+        <span class="btn-top-text-btn" id="CSTJ">+</span>
+    </div>
+    <div class="radio-btn">
+        <!-- <span class="rad-text">选择卡池</span><button onclick="location.reload()">重置</button><br>
+            <input type="radio" id="rad1" name="select-type" />
+            <span class="radio-text" id="act1">寻访1</span><br>
+            <input type="radio" id="rad0" checked name="select-type"  />
+            <span class="radio-text" id="act0">寻访0</span> -->
+        <div class="select">
+            <select id="selector">
+                <option value="0" id="opt0">寻访1</option>
+                <option value="1" id="opt1">寻访2</option>
+                <option value="2" id="opt2" style="display: none;">寻访3</option>
+            </select>
+        </div>
+    </div>
+    <div class="tips">
+        <p class="min-gu" id="tips">10次内必定获得5星及以上干员</p>
+        <p class="rate" id="rate">当前6星出率: 2%</p>
+    </div>
+    <div class="viewbox">
+        <button class="buy-btn" id="show-panel1">模拟源石交易所</button>
+        <button class="buy-btn" id="show-panel2">模拟组合包商店</button>
+    </div>
+    <div class="viewbox">
+        <div class="btn-top center">
+            <img src="./images/jade.png" class="img1" />
+            <span class="btn-top-text-f">&times;600</span>
+            <span>&nbsp;&nbsp;</span>
+            <img src="./images/jade.png" class="img1" />
+            <span class="btn-top-text-b">&times;6000</span>
+        </div>
+        <br>
+        <button class="do" id="DO">寻访一次</button>
+        <button class="dt" id="DT">寻访十次</button>
+    </div>
+    <h1>结果</h1>
+    <div class="result-box">
+        <div id="image-box"></div>
+
+        <p id="resu" class="result-area"></p>
+    </div>
+    <div class="float-block" id="panel1">
+        <div class="sstone-buy">
+            <h2 class="sstone-buy-head">源石交易所</h2>
+            <p class="sstone-text">请放心，这些只是模拟氪金，不需要真的付款</p>
+            <button id="buy-sstone0">氪金6元买1送2</button><br>
+            <button id="buy-sstone1">氪金30元买6送6</button><br>
+            <button id="buy-sstone2">氪金98元买20送20</button><br>
+            <button id="buy-sstone3">氪金198元买40送40</button><br>
+            <button id="buy-sstone4">氪金328元买66送66</button><br>
+            <button id="buy-sstone5">氪金648元130送130</button>
+        </div>
+        <button class="close-btn" id="close-panel1">关闭</button>
+    </div>
+    <div class="float-block" id="panel2">
+        <div class="package-buy">
+            <h2 class="package-buy-head">组合包</h2>
+            <button id="buy-package3">氪金30元月卡</button><br>
+            <button id="buy-package0">氪金168元每月寻访</button><br>
+            <button id="buy-package1">氪金128元新人寻访</button><br>
+            <button id="buy-package2">氪金328元周年组合</button><br>
+            <button id="buy-package4">氪金198元观光礼包</button>
+        </div>
+        <button class="close-btn" id="close-panel2">关闭</button>
+    </div>
+    <div class="showbox">
+        <h2>数据统计</h2>
+        <div class="six-box">
+            <h3 class="show six-star">抽到六星干员数</h3>
+            <p class="agent-number six-star" id="sixnum" title="点击查看详情">0</p>
+        </div>
+        <div class="five-box">
+            <h3 class="show five-star">抽到五星干员数</h3>
+            <p class="agent-number five-star" id="fivenum" title="点击查看详情">0</p>
+        </div>
+        <div class="four-box">
+            <h3 class="show four-star">抽到四星干员数</h3>
+            <p class="agent-number four-star" id="fournum" title="点击查看详情">0</p>
+        </div>
+        <div class="three-box">
+            <h3 class="show three-star">抽到三星干员数</h3>
+            <p class="agent-number three-star" id="threenum" title="点击查看详情">0</p>
+        </div>
+        <div class="money-box">
+            <h3 class="show money-num">总抽取次数 / 氪金数</h3>
+            <p class="agent-number money-num" id="moneycost" title="点击查看氪金详情">0 / 0</p>
+        </div>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script> -->
+        <!-- require MetingJS -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+        <meting-js server="netease" type="playlist" id="5312025201">
+        </meting-js> -->
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" id="musiciframe"
+            src="https://music.163.com/outchain/player?type=3&id=2492653468&auto=0&height=66"></iframe>
+        <p class="footage">Copyright <a href="https://github.com/lollipopnougat">lnp</a> 2021</p>
+    </div>
+    <script src="./js/main.js"></script>
+
+</body>
+
+</html>
