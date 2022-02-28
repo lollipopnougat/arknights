@@ -17,7 +17,7 @@ export class HeadHunter {
         this.curAct = cur;
         this.actList = actList;
 
-        if(this.actList[this.curAct].floor.length != 0) {
+        if (this.actList[this.curAct].floor.length != 0) {
             this.hasExOp = true;
         }
 
@@ -43,19 +43,56 @@ export class HeadHunter {
         let prob;
         if (isAct) {
             switch (stars) {
-                case 6: num = this.actList[this.curAct].six.length; prob = this.rand.Next(0, num - 1); res = this.actList[this.curAct].six[prob]; break;
-                case 5: num = this.actList[this.curAct].five.length; prob = this.rand.Next(0, num - 1); res = this.actList[this.curAct].five[prob]; break;
-                case 4: num = this.actList[this.curAct].four.length; prob = this.rand.Next(0, num - 1); res = this.actList[this.curAct].four[prob]; break;
-                case 3: num = this.actList[this.curAct].three.length; prob = this.rand.Next(0, num - 1); res = this.actList[this.curAct].three[prob]; break;
-                default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
+                case 6:
+                    num = this.actList[this.curAct].six.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.actList[this.curAct].six[prob];
+                    break;
+                case 5:
+                    num = this.actList[this.curAct].five.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.actList[this.curAct].five[prob];
+                    break;
+                case 4:
+                    num = this.actList[this.curAct].four.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.actList[this.curAct].four[prob];
+                    break;
+                case 3:
+                    num = this.actList[this.curAct].three.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.actList[this.curAct].three[prob];
+                    break;
+                default:
+                    throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
             }
         }
         else {
             switch (stars) {
-                case 6: if (this.hasExOp && (this.rand.Next(0, 1) == 1)) { res = this.actList[this.curAct].floor[this.rand.Next(0, 1)]; break; } num = this.normalAgents.six.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.six[prob]; break;
-                case 5: num = this.normalAgents.five.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.five[prob]; break;
-                case 4: num = this.normalAgents.four.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.four[prob]; break;
-                case 3: num = this.normalAgents.three.length; prob = this.rand.Next(0, num - 1); res = this.normalAgents.three[prob]; break;
+                case 6:
+                    if (this.hasExOp && (this.rand.Next(0, 1) == 1)) {
+                        res = this.actList[this.curAct].floor[this.rand.Next(0, this.actList[this.curAct].floor.length - 1)];
+                        break;
+                    }
+                    num = this.normalAgents.six.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.normalAgents.six[prob];
+                    break;
+                case 5:
+                    num = this.normalAgents.five.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.normalAgents.five[prob];
+                    break;
+                case 4:
+                    num = this.normalAgents.four.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.normalAgents.four[prob];
+                    break;
+                case 3:
+                    num = this.normalAgents.three.length;
+                    prob = this.rand.Next(0, num - 1);
+                    res = this.normalAgents.three[prob];
+                    break;
                 default: throw new Error('错误，不存在低于3星的或高于6星的寻访干员');
             }
         }
@@ -155,11 +192,11 @@ export class HeadHunter {
     }
 
     public SwitchActivity(type: number = 0) {
-        if(type >= this.actList.length || type < 0) {
+        if (type >= this.actList.length || type < 0) {
             throw new Error(`不存在编号为 ${type} 的卡池`);
         }
         this.curAct = type;
-        if(this.actList[this.curAct].floor.length != 0) {
+        if (this.actList[this.curAct].floor.length != 0) {
             this.hasExOp = true;
         }
     }

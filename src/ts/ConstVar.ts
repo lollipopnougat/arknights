@@ -37,8 +37,8 @@ export const noactdata: PoolData = {
 }
 
 const act0data: PoolData = {
-    six: ['卡涅利安', '星熊'],
-    five: ['绮良', '蓝毒斯', '槐琥'],
+    six: ['琴柳', '阿'],
+    five: ['羽毛笔', '普罗旺斯', '吽'],
     four: [],
     three: [],
     name: '常驻标准寻访',
@@ -51,30 +51,30 @@ const act0data: PoolData = {
 };
 
 const act1data: PoolData = { // 活动池
-    six: ['焰尾', '耀骑士临光'],
-    five: ['蚀清'],
+    six: ['澄闪'],
+    five: ['天火', '夏栎'],
     four: [],
     three: [],
-    name: '循光道途',
-    prob6: 70,
-    prob5: 50,
-    prob4: 0,
-    prob3: 0,
-    floor: ['W', '迷迭香'],
-    probfloorcount: 0
-};
-
-const act2data: PoolData = {
-    six: ['黑','傀影','史尔特尔','嵯峨'],
-    five: ['陨星', '断崖', '蜜蜡', '燧石', '四月', '爱丽丝'],
-    four: [],
-    three: [],
-    name: '联合行动',
+    name: '火花绽放',
     prob6: 50,
     prob5: 50,
     prob4: 0,
     prob3: 0,
     floor: [],
+    probfloorcount: 0
+};
+
+const act2data: PoolData = {
+    six: ['令','老鲤'],
+    five: ['夜半'],
+    four: [],
+    three: [],
+    name: '浊酒澄心',
+    prob6: 70,
+    prob5: 50,
+    prob4: 0,
+    prob3: 0,
+    floor: ['年', '夕'],
     probfloorcount: 0
 };
 
